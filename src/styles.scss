@@ -1,87 +1,155 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body{
+html,
+body {
   margin: 0;
   padding-top: 2vh;
-  padding-left: 48px;
-  padding-right: 48px;
-  background-color: #EEEEF3;
-  font-family: 'Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  background-color: #eeeef3;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif;
 }
 
-h1{
+h1 {
   font-weight: 400;
   font-size: 24px;
 }
 
-.navBar{
+.navBar {
   display: flex;
   padding-bottom: 20px;
 }
 
-.logoImg{
+.logoImg {
   margin-left: 0px;
   margin-right: 20px;
 }
 
-.translationImg{
+.translationImg {
   margin-left: auto;
   margin-right: 0px;
 }
 
-.container{
+//Cotnainer for content
+.container {
   margin-top: 2vh;
+  display: inline-block;
 }
 
-mat-card.card{
+//Default card class
+mat-card.card {
   font-family: inherit;
   padding-bottom: 8px;
+  padding-right: 6vw;
   border-radius: 8px;
-  width: 320px;
-  // width: inherit;
+  box-shadow: 0px 1px 6px #f2f2f2;
+  // width: 320px;
+  margin-bottom: 20px;
 }
 
-mat-card.card-1{
-  .mat-card-header .mat-card-title{
+// .card:nth-child(2) {
+//   margin-left: 2vw;
+// }
+
+mat-card.card-1 {
+  .mat-card-header .mat-card-title {
     margin-bottom: 6px;
   }
-  mat-card-title{
-    color: #95989F;
+  mat-card-title {
+    color: #95989f;
     font-size: 16px !important;
     font-weight: 400;
   }
-  mat-card-content{
+  mat-card-content {
     display: flex;
-    div:nth-child(1){
+    font-size: 0.86rem;
+    div:nth-child(1) {
       margin-left: 16px;
-      p:nth-child(1){
+      p:nth-child(1) {
         color: #787878;
       }
-      p:nth-child(2){
-        color: #ADB0B8;
+      p:nth-child(2) {
+        color: #adb0b8;
       }
     }
-    div:nth-child(2){
+    div:nth-child(2) {
       margin-left: 36px;
-      p:nth-child(1){
-        color: #FC6262;
+      p:nth-child(1) {
+        color: #fc6262;
       }
-      p:nth-child(2){
-        color: #FF7575;
+      p:nth-child(2) {
+        color: #ff7575;
       }
     }
-    div:nth-child(3){
+    div:nth-child(3) {
       margin-left: 36px;
-      p:nth-child(1){
-        color: #87BB99;
+      p:nth-child(1) {
+        color: #87bb99;
       }
-      p:nth-child(2){
-        color: #87BB99;
+      p:nth-child(2) {
+        color: #87bb99;
       }
     }
   }
 }
 
-// .mat-card:not([class*=mat-elevation-z]){
-//   box-shadow: none;
-// }
+mat-card.card-2 {
+  .mat-card-header .mat-card-title {
+    margin-bottom: 6px;
+  }
+  mat-card-title {
+    color: #95989f;
+    font-size: 16px !important;
+    font-weight: 400;
+  }
+  mat-card-content {
+    display: flex;
+    font-size: 0.86rem;
+    div:nth-child(1) {
+      margin-left: 16px;
+      p:nth-child(1) {
+        color: #787878;
+      }
+      p:nth-child(2) {
+        color: #adb0b8;
+      }
+    }
+    div:nth-child(2) {
+      margin-left: 36px;
+      p:nth-child(1) {
+        color: #fc6262;
+      }
+      p:nth-child(2) {
+        color: #ff7575;
+      }
+    }
+    div:nth-child(3) {
+      margin-left: 36px;
+      p:nth-child(1) {
+        color: #87bb99;
+      }
+      p:nth-child(2) {
+        color: #87bb99;
+      }
+    }
+  }
+}
+
+table {
+  width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+  html{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  mat-card.card {
+    width: 100%;
+  }
+}

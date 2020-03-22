@@ -1,8 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-body{
+html, body{
+  margin: 0;
+  padding-top: 2vh;
+  padding-left: 48px;
+  padding-right: 48px;
   background-color: #EEEEF3;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
 h1{
@@ -12,14 +16,72 @@ h1{
 
 .navBar{
   display: flex;
+  padding-bottom: 20px;
 }
 
 .logoImg{
-  margin-left: 48px;
+  margin-left: 0px;
   margin-right: 20px;
 }
 
 .translationImg{
   margin-left: auto;
-  margin-right: 48px;
+  margin-right: 0px;
 }
+
+.container{
+  margin-top: 2vh;
+}
+
+mat-card.card{
+  font-family: inherit;
+  padding-bottom: 8px;
+  border-radius: 8px;
+  width: 320px;
+  // width: inherit;
+}
+
+mat-card.card-1{
+  .mat-card-header .mat-card-title{
+    margin-bottom: 6px;
+  }
+  mat-card-title{
+    color: #95989F;
+    font-size: 16px !important;
+    font-weight: 400;
+  }
+  mat-card-content{
+    display: flex;
+    div:nth-child(1){
+      margin-left: 16px;
+      p:nth-child(1){
+        color: #787878;
+      }
+      p:nth-child(2){
+        color: #ADB0B8;
+      }
+    }
+    div:nth-child(2){
+      margin-left: 36px;
+      p:nth-child(1){
+        color: #FC6262;
+      }
+      p:nth-child(2){
+        color: #FF7575;
+      }
+    }
+    div:nth-child(3){
+      margin-left: 36px;
+      p:nth-child(1){
+        color: #87BB99;
+      }
+      p:nth-child(2){
+        color: #87BB99;
+      }
+    }
+  }
+}
+
+// .mat-card:not([class*=mat-elevation-z]){
+//   box-shadow: none;
+// }

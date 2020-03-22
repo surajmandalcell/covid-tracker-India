@@ -2,26 +2,13 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+export interface stateTable {
+  loc: string;
+  confirmedCasesIndian: number;
+  confirmedCasesForeign: number;
+  discharged: number;
+  deaths: number;
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,27 +16,30 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class AppComponent {
   //India Specific Stats
-  deathsIn:string;
-  confirmedIn:string;
-  recoveredIn: string;
-  newDeathsTodayIn:string;
-  newConfirmedTodayIn:string;
+  deathsIn: number;
+  confirmedIn: number;
+  recoveredIn: number;
+  newDeathsTodayIn: number;
+  newConfirmedTodayIn: number;
   // Global Stats
-  newCases:string;
-  totalDead:string;
-  newDeaths:string;
-  totalCases:string;
-  totalRecovered:string;
+  newCases: number;
+  totalDead: number;
+  newDeaths: number;
+  totalCases: number;
+  totalRecovered: number;
   // Api url
+  stateData: stateTable[];
   readonly apiUrl = 'https://thevirustracker.com';
+  readonly api2 = 'https://api.rootnet.in/covid19-in/stats/daily';
 
-  constructor(public httpClient: HttpClient){
+  constructor(public httpClient: HttpClient) {
     this.getCountryData();
     this.getGlobalData();
+    this.getStateData();
   }
 
-  getCountryData(){
-    this.httpClient.get(this.apiUrl+'/free-api?countryTotal=IN').subscribe((res:any) => {
+  getCountryData() {
+    this.httpClient.get(this.apiUrl + '/free-api?countryTotal=IN').subscribe((res: any) => {
       console.log(res);
       this.confirmedIn = res.countrydata[0].total_cases;
       this.deathsIn = res.countrydata[0].total_deaths;
@@ -59,8 +49,8 @@ export class AppComponent {
     });
   }
 
-  getGlobalData(){
-    this.httpClient.get(this.apiUrl+'/free-api?global=stats').subscribe((res:any) => {
+  getGlobalData() {
+    this.httpClient.get(this.apiUrl + '/free-api?global=stats').subscribe((res: any) => {
       console.log(res);
       this.totalCases = res.results[0].total_cases;
       this.totalDead = res.results[0].total_deaths;
@@ -70,7 +60,15 @@ export class AppComponent {
     });
   }
 
+  getStateData() {
+    this.httpClient.get(this.api2).subscribe((res: any) => {
+      console.log(res);
+      this.stateData = res.data.slice(-1)[0].regional;
+      console.log("state table");
+      console.log(this.stateData);
+    })
+  }
+
   title = 'covid-tracker-India';
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['loc', 'confirmedCasesIndian', 'confirmedCasesForeign', 'discharged', 'deaths'];
 }

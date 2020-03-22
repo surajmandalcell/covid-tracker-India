@@ -50,30 +50,36 @@
   </mat-card>
 
   <mat-card class="card mat-elevation-z0">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+    <table mat-table [dataSource]="stateData" class="mat-elevation-z0">
     
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <!-- State Column -->
+      <ng-container matColumnDef="loc">
+        <th mat-header-cell *matHeaderCellDef> STATE </th>
+        <td mat-cell *matCellDef="let element"> {{element.loc}} </td>
       </ng-container>
     
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <!-- confirmedCasesIndian Column -->
+      <ng-container matColumnDef="confirmedCasesIndian">
+        <th mat-header-cell *matHeaderCellDef> CONFIRMED CASES INDIA </th>
+        <td mat-cell *matCellDef="let element"> {{element.confirmedCasesIndian}} </td>
       </ng-container>
     
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      <!-- confirmedCasesForeign Column -->
+      <ng-container matColumnDef="confirmedCasesForeign">
+        <th mat-header-cell *matHeaderCellDef> CONFIRMED CASES FOREIGN </th>
+        <td mat-cell *matCellDef="let element"> {{element.confirmedCasesForeign}} </td>
       </ng-container>
     
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      <!-- Discharged Column -->
+      <ng-container matColumnDef="discharged">
+        <th mat-header-cell *matHeaderCellDef> DISCHARGED </th>
+        <td mat-cell *matCellDef="let element"> {{element.discharged}} </td>
+      </ng-container>
+
+      <!-- Deaths Column -->
+      <ng-container matColumnDef="deaths">
+        <th mat-header-cell *matHeaderCellDef> DEATHS </th>
+        <td mat-cell *matCellDef="let element"> {{element.deaths}} </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

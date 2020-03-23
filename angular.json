@@ -123,6 +123,10 @@
               "devServerTarget": "covid-tracker-India:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

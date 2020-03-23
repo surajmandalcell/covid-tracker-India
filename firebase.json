@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "covid-tracker-India",
+      "public": "dist/covid-tracker-India",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

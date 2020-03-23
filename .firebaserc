@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "covid-19-tracker-india": {
+      "hosting": {
+        "covid-tracker-India": [
+          "covid-19-tracker-india"
+        ]
+      }
+    }
+  }
+}

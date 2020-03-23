@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 // import { FirebaseService } from './services/firebase.service';
 
 @NgModule({
@@ -24,6 +26,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     // AngularFirestoreModule,
     // AngularFireAnalyticsModule,
     // AngularFireModule.initializeApp(environment.firebase)

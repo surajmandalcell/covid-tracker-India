@@ -76,6 +76,14 @@ export class AppComponent {
     this.httpClient.get(this.api2).subscribe((res: any) => {
       this.stateDataTotal = res.data.slice(-1)[0].summary;
       this.stateData = res.data.slice(-1)[0].regional;
+      var total:stateTable={
+        loc: "Total",
+        confirmedCasesIndian: this.stateDataTotal.confirmedCasesIndian,
+        confirmedCasesForeign: this.stateDataTotal.confirmedCasesForeign,
+        discharged: this.stateDataTotal.discharged,
+        deaths: this.stateDataTotal.deaths
+      }
+      this.stateData.push(total);
     })
   }
 }

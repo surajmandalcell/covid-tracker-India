@@ -132,7 +132,7 @@ table {
   width: 100%;
 }
 
-tr:nth-last-child(1){
+tr:nth-last-child(1) {
   font-weight: 500;
   border-bottom: solid 1px #ffffff;
 }
@@ -143,7 +143,7 @@ tr:nth-last-child(1){
   // max-width: 380px;
 }
 
-.two{
+.two {
   display: flex;
 }
 
@@ -158,24 +158,50 @@ tr:nth-last-child(1){
   .card.table {
     overflow: scroll;
   }
-  .table{
+  .table {
     padding-top: 6px !important;
   }
   th,
   td {
     padding: 20px 10px !important;
   }
-  .two{
+  .two {
     display: block;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+  mat-card.card-2 {
+    margin-left: 6px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0px;
+    padding-top: 20px;
+  }
+  .card-2{
+    margin-left: 0px !important;
+  }
+  .card-1,
+  .card-2 {
+    margin-left: 0px;
+  }
+  mat-card.mat-card.card {
+    padding-left: 0px !important;
+  }
+  .two {
+    display: block;
+  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+  mat-card.card-2 {
+    margin-left: 24px;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)

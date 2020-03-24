@@ -1,51 +1,52 @@
 <div class="navBar">
   <img src="assets/img/coronaLogo.svg" alt="corona logo svg" class="logoImg">
   <h1>{{title}}</h1>
-  <img src="assets/img/translation.svg" alt="change language" class="translationImg" (click)="consol()">
 </div>
 
 <div class="container">
-  <mat-card class="card card-1 mat-elevation-z0">
-    <mat-card-header>
-      <mat-card-title>INDIA SITUATION</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div>
-        <p>{{confirmedIn}} (+{{newConfirmedTodayIn}})</p>
-        <p>Confirmed</p>
-      </div>
-      <div>
-        <p>{{deathsIn}} (+{{newDeathsTodayIn}})</p>
-        <p>Deaths</p>
-      </div>
-      <div>
-        <p>{{recoveredIn}}</p>
-        <p>Recovered</p>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <div class="two">
+    <mat-card class="card card-1 mat-elevation-z0">
+      <mat-card-header>
+        <mat-card-title>INDIA SITUATION</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <p>{{confirmedIn}} (+{{newConfirmedTodayIn}})</p>
+          <p>Confirmed</p>
+        </div>
+        <div>
+          <p>{{deathsIn}} (+{{newDeathsTodayIn}})</p>
+          <p>Deaths</p>
+        </div>
+        <div>
+          <p>{{recoveredIn}}</p>
+          <p>Recovered</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
 
-  <mat-card class="card card-2 mat-elevation-z0">
-    <mat-card-header>
-      <mat-card-title>GLOBAL SITUATION</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div>
-        <p>{{totalCases}} (+{{newCases}})</p>
-        <p>Confirmed</p>
-      </div>
-      <div>
-        <p>{{totalDead}} (+{{newDeaths}})</p>
-        <p>Deaths</p>
-      </div>
-      <div>
-        <p>{{totalRecovered}}</p>
-        <p>Recovered</p>
-      </div>
-    </mat-card-content>
-  </mat-card>
+    <mat-card class="card card-2 mat-elevation-z0">
+      <mat-card-header>
+        <mat-card-title>GLOBAL SITUATION</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <p>{{totalCases}} (+{{newCases}})</p>
+          <p>Confirmed</p>
+        </div>
+        <div>
+          <p>{{totalDead}} (+{{newDeaths}})</p>
+          <p>Deaths</p>
+        </div>
+        <div>
+          <p>{{totalRecovered}}</p>
+          <p>Recovered</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-  <mat-card class="card mat-elevation-z0">
+  <mat-card class="card table mat-elevation-z0">
     <table mat-table [dataSource]="stateData" class="mat-elevation-z0">
 
       <!-- State Column -->

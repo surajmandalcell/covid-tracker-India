@@ -156,7 +156,8 @@ tr:nth-last-child(1) {
     margin-left: 0px;
   }
   .card.table {
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
   }
   .table {
     padding-top: 6px !important;
@@ -182,7 +183,7 @@ tr:nth-last-child(1) {
     padding: 0px;
     padding-top: 20px;
   }
-  .card-2{
+  .card-2 {
     margin-left: 0px !important;
   }
   .card-1,
@@ -190,7 +191,10 @@ tr:nth-last-child(1) {
     margin-left: 0px;
   }
   mat-card.mat-card.card {
-    padding-left: 0px !important;
+    padding-left: 0px;
+  }
+  mat-card.mat-card.card.table {
+    padding-left: 10px;
   }
   .two {
     display: block;

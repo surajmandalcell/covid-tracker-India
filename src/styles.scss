@@ -132,6 +132,11 @@ table {
   width: 100%;
 }
 
+tr:nth-last-child(1){
+  font-weight: 500;
+  border-bottom: solid 1px #ffffff;
+}
+
 .card-1,
 .card-2 {
   width: 100%;
@@ -152,6 +157,9 @@ table {
   }
   .card.table {
     overflow: scroll;
+  }
+  .table{
+    padding-top: 6px !important;
   }
   th,
   td {

@@ -1,7 +1,10 @@
-<div class="container">
+<div class="container" [class.dark-mode]="dark">
   <div class="navBar">
     <img src="assets/img/coronaLogo.svg" alt="corona logo svg" class="logoImg">
     <h1>{{title}}</h1>
+    <button class="pushRight themeToggle"  matTooltip="Switch theme" (click)="toggle()">
+      <mat-icon>wb_sunny</mat-icon>
+    </button>
   </div>
 
 
@@ -40,7 +43,7 @@
           <p>Deaths</p>
         </div>
         <div>
-          <p>{{totalRecovered}} (+∅)</p>
+          <p>{{totalRecovered}}</p>
           <p>Recovered</p>
         </div>
       </mat-card-content>

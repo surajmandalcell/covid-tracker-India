@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 import { stateTable, newsTable } from './models/general';
 @Component({
@@ -8,6 +8,27 @@ import { stateTable, newsTable } from './models/general';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  dark:boolean=false;
+
+  toggle(){
+    this.dark =! this.dark;
+    if(this.dark){
+      this.goDark();
+    }else{
+      this.goLight();
+    }
+    console.log("Dark theme : " + this.dark);
+  }
+
+  goDark(){
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#000';
+    localStorage.setItem('theme', 'true');
+  }
+
+  goLight(){
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#eeeef3';
+    localStorage.setItem('theme', 'false');
+  }
 
   title = 'Covid 19';
 
@@ -40,10 +61,16 @@ export class AppComponent {
   displayedColumns: string[] = ['loc', 'confirmedCasesIndian', 'confirmedCasesForeign', 'discharged', 'deaths'];
   newsColumns: string[] = ['image', 'title', 'time'];
 
-  constructor(public httpClient: HttpClient) {
+  constructor(public httpClient: HttpClient, private elementRef: ElementRef) {
     this.getCountryData();
     this.getGlobalData();
     this.getStateData();
+    if(localStorage.getItem('theme')=='true'){
+      this.goDark();
+      this.dark=true;
+    }else{
+      this.dark=false;
+    }
   }
 
   consol(){

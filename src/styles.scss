@@ -1,13 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import "grid.scss";
 
+$background-lt: #eeeef3;
+$background-dk: #212121;
+$surface-dk: #121212;
+$primary-dk: #252525;
+$on-background-dk: #a7a7a7;
+$on-surface-dk: #909090;
+
+* {
+  transition: all ease-in-out 0.2s;
+}
+
 body {
   margin: 0;
   font-size: 16px;
   padding-top: 2vh;
   padding-left: 2vw;
   padding-right: 2vw;
-  background-color: #eeeef3;
+  background-color: $background-lt;
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
     sans-serif;
 }
@@ -24,12 +35,24 @@ h1 {
 
 .logoImg {
   margin-left: 0px;
-  // margin-right: 20px;
+  margin-right: 1vw;
 }
 
-.translationImg {
+.pushRight {
   margin-left: auto;
   margin-right: 0px;
+}
+
+.themeToggle{
+  border: none;
+  background-color: transparent;
+  &:hover{
+    opacity: 0.65;
+    cursor: pointer;
+  }
+  &:focus{
+    outline: none;
+  }
 }
 
 //Default card class
@@ -128,15 +151,6 @@ mat-card.card-2 {
   }
 }
 
-table {
-  width: 100%;
-}
-
-tr:nth-last-child(1) {
-  font-weight: 500;
-  border-bottom: solid 1px #ffffff;
-}
-
 .card-1,
 .card-2 {
   width: 100%;
@@ -147,6 +161,20 @@ tr:nth-last-child(1) {
   display: flex;
 }
 
+// Table Styles
+table {
+  width: 100%;
+  margin: auto;
+  background-color: transparent !important;
+}
+
+tr:nth-last-child(1) {
+  font-weight: 500;
+  border-bottom: solid 1px #ffffff;
+}
+
+
+// Media Queries
 @media only screen and (max-width: 576px) {
   body {
     padding: 0px;
@@ -171,10 +199,19 @@ tr:nth-last-child(1) {
   }
 }
 
+@media only screen and (min-width: 576px){
+  table{
+    margin-left: 16px;
+  }
+}
+
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   mat-card.card-2 {
     margin-left: 6px;
+  }
+  table{
+    margin-left: 20px;
   }
 }
 
@@ -196,6 +233,10 @@ tr:nth-last-child(1) {
   mat-card.mat-card.card.table {
     padding-left: 10px;
   }
+  th,
+  td {
+    padding: 20px 10px !important;
+  }
   .two {
     display: block;
   }
@@ -206,8 +247,53 @@ tr:nth-last-child(1) {
   mat-card.card-2 {
     margin-left: 24px;
   }
+  table{
+    margin-left: 32px;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+  table{
+    margin-left: 50px;
+  }
+}
+
+
+// Dark Mode styles
+.dark-mode {
+  .navBar {
+    h1 {
+      color: $on-background-dk;
+    }
+    img {
+      filter: invert(1);
+      opacity: 0.6;
+    }
+    .themeToggle{
+      color: $on-background-dk;
+    }
+  }
+  mat-card {
+    background-color: $surface-dk;
+    border: 1px solid rgb(20, 20, 20);
+    box-shadow: 0px 1px 6px #000000;
+    mat-card-title {
+      color: $on-surface-dk;
+    }
+    mat-card-content div:nth-child(1) {
+      p:nth-child(1) {
+        color: $on-background-dk;
+      }
+      p:nth-child(2) {
+        color: $on-surface-dk;
+      }
+    }
+    table {
+      th,
+      td {
+        color: $on-surface-dk;
+      }
+    }
+  }
 }

@@ -247,6 +247,14 @@ mat-card.card-2 {
       overflow-x:scroll
     }
   }
+  @include res('sm'){
+    padding-left: 2px !important;
+    background-color: red;
+  }
+  @include res('xs'){
+    padding-left: 2px !important;
+    background-color: red;
+  }
 }
 
 // Table Styles

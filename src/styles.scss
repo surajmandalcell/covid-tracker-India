@@ -13,18 +13,32 @@ $on-surface-dk: #909090;
 $c-red: #fc6262;
 $c-grey: #787878;
 $c-green: #87bb99;
-$c-orange: #F28D52;
+$c-orange: #f28d52;
 $c-blue: rgb(124, 124, 206);
 
 $card-content-margin: 26px;
 
 // Mixins
 $breakpoints: (
-  'xs':  ( max-width:  575px ),
-  'sm':  ( min-width:  576px ) and (max-width:  575px),
-  'md':  ( min-width:  768px ),
-  'lg': ( min-width:  992px ),
-  'xlg':  ( min-width: 1200px )
+  "xs": (
+    max-width: 575px,
+  ),
+  "sm": (
+    min-width: 576px,
+  )
+  and
+  (
+    max-width: 575px,
+  ),
+  "md": (
+    min-width: 768px,
+  ),
+  "lg": (
+    min-width: 992px,
+  ),
+  "xlg": (
+    min-width: 1200px,
+  ),
 ) !default;
 
 @mixin res($breakpoint) {
@@ -35,7 +49,7 @@ $breakpoints: (
       @content;
     }
   }
- 
+
   // If the key doesn't exist in the map
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
@@ -43,7 +57,9 @@ $breakpoints: (
   }
 }
 
-*, ::after, ::before {
+*,
+::after,
+::before {
   box-sizing: inherit;
   transition: all ease-in-out 0.2s;
 }
@@ -93,22 +109,22 @@ h1 {
 
 // Body
 
-.container{
+.container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  @include res('sm'){
+  @include res("sm") {
     max-width: 540px;
   }
-  @include res('md'){
+  @include res("md") {
     max-width: 720px;
   }
-  @include res('lg'){
+  @include res("lg") {
     max-width: 992px;
   }
-  @include res('xlg'){
+  @include res("xlg") {
     max-width: 1140px;
   }
 }
@@ -182,8 +198,8 @@ mat-card.card-2 {
   mat-card-content {
     display: flex;
     font-size: 0.86rem;
-    @include res('lg'){
-      div{
+    @include res("lg") {
+      div {
         margin-left: 14px !important;
       }
     }
@@ -236,24 +252,22 @@ mat-card.card-2 {
 mat-card.card-1,
 mat-card.card-2 {
   width: 100%;
-  mat-card-content{
+  mat-card-content {
     white-space: nowrap;
-    div:not(:first-child){
+    div:not(:first-child) {
       margin-left: $card-content-margin;
     }
   }
-  @include res('xs'){
-    mat-card-content{
-      overflow-x:scroll
+  @include res("xs") {
+    mat-card-content {
+      overflow-x: scroll;
     }
   }
-  @include res('sm'){
+  @include res("sm") {
     padding-left: 2px !important;
-    background-color: red;
   }
-  @include res('xs'){
+  @include res("xs") {
     padding-left: 2px !important;
-    background-color: red;
   }
 }
 
@@ -269,9 +283,32 @@ tr:nth-last-child(1) {
   border-bottom: solid 1px #ffffff;
 }
 
+@include res("xs") {
+  mat-card.card-2 {
+    mat-card-content {
+      div {
+        margin-left: 3% !important;
+      }
+    }
+  }
+}
+
+.disclamer {
+  opacity: 0.95;
+  max-height: 60px;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px dotted $c-grey;
+  background-color: transparentize($color: $surface-dk, $amount: 0.72);
+  p {
+    font-size: 0.8rem;
+  }
+}
+
 // Media Queries
-@include res('sm') {
-  html{
+@include res("sm") {
+  html {
     font-size: 15px;
   }
   body {
@@ -296,7 +333,7 @@ tr:nth-last-child(1) {
 }
 
 // Medium devices (tablets, 768px and up)
-@include res('md') {
+@include res("md") {
   mat-card.card-2 {
     margin-left: 0px;
   }
@@ -327,7 +364,7 @@ tr:nth-last-child(1) {
 }
 
 // Large devices (desktops, 992px and up)
-@include res('lg') {
+@include res("lg") {
   body {
     padding: 0px;
     padding-top: 20px;
@@ -352,7 +389,7 @@ tr:nth-last-child(1) {
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@include res('xlg') {
+@include res("xlg") {
   body {
     padding: 0px;
     padding-top: 20px;
@@ -413,6 +450,11 @@ tr:nth-last-child(1) {
       td {
         color: $on-surface-dk;
       }
+    }
+    .disclamer {
+      color: $on-surface-dk;
+      border: 1px dotted $c-grey;
+      background-color: transparent;
     }
   }
 }

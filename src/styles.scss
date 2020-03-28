@@ -21,7 +21,7 @@ $card-content-margin: 26px;
 // Mixins
 $breakpoints: (
   'xs':  ( max-width:  575px ),
-  'sm':  ( min-width:  576px ),
+  'sm':  ( min-width:  576px ) and (max-width:  575px),
   'md':  ( min-width:  768px ),
   'lg': ( min-width:  992px ),
   'xlg':  ( min-width: 1200px )
@@ -278,6 +278,7 @@ tr:nth-last-child(1) {
     overflow-y: hidden;
   }
   th,
+  th.mat-header-cell,
   td {
     padding: 20px 10px !important;
   }

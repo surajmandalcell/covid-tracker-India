@@ -19,12 +19,16 @@
           <p>Confirmed</p>
         </div>
         <div>
-          <p>{{deathsIn}} (+{{newDeathsTodayIn}})</p>
-          <p>Deaths</p>
+          <p>{{activeIn}}</p>
+          <p>Active</p>
         </div>
         <div>
           <p>{{recoveredIn}}</p>
           <p>Recovered</p>
+        </div>
+        <div>
+          <p>{{deathsIn}} (+{{newDeathsTodayIn}})</p>
+          <p>Deaths</p>
         </div>
       </mat-card-content>
     </mat-card>
@@ -39,12 +43,20 @@
           <p>Confirmed</p>
         </div>
         <div>
-          <p>{{totalDead}} (+{{newDeaths}})</p>
-          <p>Deaths</p>
+          <p>{{totalActiveCases}}</p>
+          <p>Active</p>
+        </div>
+        <div>
+          <p>{{totalSeriousCases}}</p>
+          <p>Serious</p>
         </div>
         <div>
           <p>{{totalRecovered}}</p>
           <p>Recovered</p>
+        </div>
+        <div>
+          <p>{{totalDead}} (+{{newDeaths}})</p>
+          <p>Deaths</p>
         </div>
       </mat-card-content>
     </mat-card>

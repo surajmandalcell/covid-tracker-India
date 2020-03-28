@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "grid.scss";
+// @import "grid.scss";
+
+// Variables
 
 $background-lt: #eeeef3;
 $background-dk: #212121;
@@ -8,7 +10,41 @@ $primary-dk: #252525;
 $on-background-dk: #a7a7a7;
 $on-surface-dk: #909090;
 
-* {
+$c-red: #fc6262;
+$c-grey: #787878;
+$c-green: #87bb99;
+$c-orange: #F28D52;
+$c-blue: rgb(124, 124, 206);
+
+$card-content-margin: 26px;
+
+// Mixins
+$breakpoints: (
+  'xs':  ( max-width:  575px ),
+  'sm':  ( min-width:  576px ),
+  'md':  ( min-width:  768px ),
+  'lg': ( min-width:  992px ),
+  'xlg':  ( min-width: 1200px )
+) !default;
+
+@mixin res($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+ 
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+*, ::after, ::before {
+  box-sizing: inherit;
   transition: all ease-in-out 0.2s;
 }
 
@@ -43,15 +79,37 @@ h1 {
   margin-right: 0px;
 }
 
-.themeToggle{
+.themeToggle {
   border: none;
   background-color: transparent;
-  &:hover{
+  &:hover {
     opacity: 0.65;
     cursor: pointer;
   }
-  &:focus{
+  &:focus {
     outline: none;
+  }
+}
+
+// Body
+
+.container{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  @include res('sm'){
+    max-width: 540px;
+  }
+  @include res('md'){
+    max-width: 720px;
+  }
+  @include res('lg'){
+    max-width: 992px;
+  }
+  @include res('xlg'){
+    max-width: 1140px;
   }
 }
 
@@ -59,11 +117,9 @@ h1 {
 mat-card.card {
   font-family: inherit;
   padding-bottom: 8px;
-  padding-right: 6vw;
   border-radius: 8px;
-  box-shadow: 0px 1px 6px #f2f2f2;
-  // width: 320px;
   margin-bottom: 20px;
+  box-shadow: 0px 1px 6px #f2f2f2;
 }
 
 mat-card.card-1 {
@@ -81,35 +137,40 @@ mat-card.card-1 {
     div:nth-child(1) {
       margin-left: 16px;
       p:nth-child(1) {
-        color: #787878;
+        color: $c-grey;
       }
       p:nth-child(2) {
-        color: #adb0b8;
+        color: $c-grey;
       }
     }
     div:nth-child(2) {
-      margin-left: 36px;
       p:nth-child(1) {
-        color: #fc6262;
+        color: $c-blue;
       }
       p:nth-child(2) {
-        color: #ff7575;
+        color: $c-blue;
       }
     }
     div:nth-child(3) {
-      margin-left: 36px;
       p:nth-child(1) {
-        color: #87bb99;
+        color: $c-green;
       }
       p:nth-child(2) {
-        color: #87bb99;
+        color: $c-green;
+      }
+    }
+    div:nth-child(4) {
+      p:nth-child(1) {
+        color: $c-red;
+      }
+      p:nth-child(2) {
+        color: $c-red;
       }
     }
   }
 }
 
 mat-card.card-2 {
-  margin-left: 40px;
   .mat-card-header .mat-card-title {
     margin-bottom: 6px;
   }
@@ -121,44 +182,71 @@ mat-card.card-2 {
   mat-card-content {
     display: flex;
     font-size: 0.86rem;
+    @include res('lg'){
+      div{
+        margin-left: 14px !important;
+      }
+    }
     div:nth-child(1) {
-      margin-left: 16px;
+      margin-left: 16px !important;
       p:nth-child(1) {
-        color: #787878;
+        color: $c-grey;
       }
       p:nth-child(2) {
-        color: #adb0b8;
+        color: $c-grey;
       }
     }
     div:nth-child(2) {
-      margin-left: 36px;
+      // margin-left: 16px;
       p:nth-child(1) {
-        color: #fc6262;
+        color: $c-blue;
       }
       p:nth-child(2) {
-        color: #ff7575;
+        color: $c-blue;
       }
     }
     div:nth-child(3) {
-      margin-left: 36px;
+      // margin-left: 16px;
       p:nth-child(1) {
-        color: #87bb99;
+        color: $c-orange;
       }
       p:nth-child(2) {
-        color: #87bb99;
+        color: $c-orange;
+      }
+    }
+    div:nth-child(4) {
+      p:nth-child(1) {
+        color: $c-green;
+      }
+      p:nth-child(2) {
+        color: $c-green;
+      }
+    }
+    div:nth-child(5) {
+      p:nth-child(1) {
+        color: $c-red;
+      }
+      p:nth-child(2) {
+        color: $c-red;
       }
     }
   }
 }
 
-.card-1,
-.card-2 {
+mat-card.card-1,
+mat-card.card-2 {
   width: 100%;
-  // max-width: 380px;
-}
-
-.two {
-  display: flex;
+  mat-card-content{
+    white-space: nowrap;
+    div:not(:first-child){
+      margin-left: $card-content-margin;
+    }
+  }
+  @include res('xs'){
+    mat-card-content{
+      overflow-x:scroll
+    }
+  }
 }
 
 // Table Styles
@@ -173,9 +261,11 @@ tr:nth-last-child(1) {
   border-bottom: solid 1px #ffffff;
 }
 
-
 // Media Queries
-@media only screen and (max-width: 576px) {
+@include res('sm') {
+  html{
+    font-size: 15px;
+  }
   body {
     padding: 0px;
     padding-top: 20px;
@@ -187,9 +277,6 @@ tr:nth-last-child(1) {
     overflow-x: scroll;
     overflow-y: hidden;
   }
-  .table {
-    padding-top: 6px !important;
-  }
   th,
   td {
     padding: 20px 10px !important;
@@ -199,29 +286,17 @@ tr:nth-last-child(1) {
   }
 }
 
-@media only screen and (min-width: 576px){
-  table{
-    margin-left: 16px;
-  }
-}
-
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
+@include res('md') {
   mat-card.card-2 {
-    margin-left: 6px;
+    margin-left: 0px;
   }
-  table{
-    margin-left: 20px;
-  }
-}
-
-@media screen and (max-width: 768px) {
   body {
     padding: 0px;
     padding-top: 20px;
   }
-  .card-2 {
-    margin-left: 0px !important;
+  mat-card.card-2 {
+    margin-left: 0px;
   }
   .card-1,
   .card-2 {
@@ -243,22 +318,57 @@ tr:nth-last-child(1) {
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  mat-card.card-2 {
-    margin-left: 24px;
+@include res('lg') {
+  body {
+    padding: 0px;
+    padding-top: 20px;
   }
-  table{
-    margin-left: 32px;
+  mat-card.card-2 {
+    margin-left: 20px;
+  }
+  .card-1,
+  .card-2 {
+    margin-left: 0px;
+  }
+  mat-card.mat-card.card {
+    padding-left: 0px;
+  }
+  th,
+  td {
+    padding: 20px 10px !important;
+  }
+  .two {
+    display: flex;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  table{
-    margin-left: 48px;
+@include res('xlg') {
+  body {
+    padding: 0px;
+    padding-top: 20px;
+  }
+  mat-card.card-2 {
+    margin-left: 20px;
+  }
+  .card-1,
+  .card-2 {
+    margin-left: 0px;
+  }
+  mat-card.mat-card.card {
+    padding-left: 0px;
+  }
+  mat-card.mat-card.card.table {
+    padding-left: 10px;
+  }
+  th,
+  td {
+    padding: 20px 10px !important;
+  }
+  .two {
+    display: flex;
   }
 }
-
 
 // Dark Mode styles
 .dark-mode {
@@ -270,7 +380,7 @@ tr:nth-last-child(1) {
       filter: invert(1);
       opacity: 0.6;
     }
-    .themeToggle{
+    .themeToggle {
       color: $on-background-dk;
     }
   }

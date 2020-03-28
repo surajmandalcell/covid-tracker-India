@@ -32,19 +32,22 @@ export class AppComponent {
 
   title = 'Covid 19';
 
-  //India Specific Stats
+  //India Specific Data
   deathsIn: number;
+  activeIn: number;
   confirmedIn: number;
   recoveredIn: number;
   newDeathsTodayIn: number;
   newConfirmedTodayIn: number;
 
-  // Global Stats
+  // Global Data
   newCases: number;
   totalDead: number;
   newDeaths: number;
   totalCases: number;
   totalRecovered: number;
+  totalActiveCases: number;
+  totalSeriousCases: number;
 
   // State Data
   stateDataTotal: any;
@@ -80,8 +83,9 @@ export class AppComponent {
 
   getCountryData() {
     this.httpClient.get(this.apiUrl + '/free-api?countryTotal=IN').subscribe((res: any) => {
-      this.confirmedIn = res.countrydata[0].total_cases;
       this.deathsIn = res.countrydata[0].total_deaths;
+      this.confirmedIn = res.countrydata[0].total_cases;
+      this.activeIn = res.countrydata[0].total_active_cases;
       this.recoveredIn = res.countrydata[0].total_recovered;
       this.newDeathsTodayIn = res.countrydata[0].total_new_deaths_today;
       this.newConfirmedTodayIn = res.countrydata[0].total_new_cases_today;
@@ -90,11 +94,14 @@ export class AppComponent {
 
   getGlobalData() {
     this.httpClient.get(this.apiUrl + '/free-api?global=stats').subscribe((res: any) => {
+      console.log(res);
       this.totalCases = res.results[0].total_cases;
       this.totalDead = res.results[0].total_deaths;
       this.totalRecovered = res.results[0].total_recovered;
-      this.newDeaths = res.results[0].total_new_deaths_today;
       this.newCases = res.results[0].total_new_cases_today;
+      this.newDeaths = res.results[0].total_new_deaths_today;
+      this.totalActiveCases = res.results[0].total_active_cases;
+      this.totalSeriousCases = res.results[0].total_serious_cases;
     });
   }
 

@@ -142,9 +142,9 @@ mat-card.card-1 {
   .mat-card-header .mat-card-title {
     margin-bottom: 6px;
   }
-  mat-card-title {
+  mat-card-title.mat-card-title {
     color: #95989f;
-    font-size: 16px !important;
+    font-size: 16px;
     font-weight: 400;
   }
   mat-card-content {
@@ -190,17 +190,17 @@ mat-card.card-2 {
   .mat-card-header .mat-card-title {
     margin-bottom: 6px;
   }
-  mat-card-title {
+  mat-card-title.mat-card-title {
     color: #95989f;
-    font-size: 16px !important;
+    font-size: 16px;
     font-weight: 400;
   }
   mat-card-content {
     display: flex;
     font-size: 0.86rem;
     @include res("lg") {
-      div {
-        margin-left: 14px !important;
+      div.showData {
+        margin-left: 14px;
       }
     }
     div:nth-child(1) {
@@ -264,10 +264,31 @@ mat-card.card-2 {
     }
   }
   @include res("sm") {
-    padding-left: 2px !important;
+    padding-left: 2px;
   }
   @include res("xs") {
-    padding-left: 2px !important;
+    padding-left: 2px;
+  }
+}
+
+mat-card.card-4 {
+  display: flex;
+  padding: 2px 4px;
+  user-select: none;
+  justify-content: space-evenly;
+  mat-card.mat-card {
+    flex: 25%;
+    border: none;
+    display: flex;
+    max-width: 200px;
+    box-shadow: none;
+    color: $c-grey;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+  }
+  mat-card:not(:nth-last-child(1)) {
+    margin-right: 10px;
   }
 }
 
@@ -283,6 +304,24 @@ tr:nth-last-child(1) {
   border-bottom: solid 1px #ffffff;
 }
 
+.disclamer {
+  opacity: 0.95;
+  max-height: 60px;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px dotted transparentize($color: $c-grey, $amount: 0.8);
+  background-color: transparentize($color: $surface-dk, $amount: 0.98);
+  p {
+    @include res("xs"){
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+    font-size: 0.8rem;
+  }
+}
+
+// Media Queries
 @include res("xs") {
   mat-card.card-2 {
     mat-card-content {
@@ -293,20 +332,6 @@ tr:nth-last-child(1) {
   }
 }
 
-.disclamer {
-  opacity: 0.95;
-  max-height: 60px;
-  margin-top: 10px;
-  text-align: center;
-  border-radius: 4px;
-  border: 1px dotted $c-grey;
-  background-color: transparentize($color: $surface-dk, $amount: 0.72);
-  p {
-    font-size: 0.8rem;
-  }
-}
-
-// Media Queries
 @include res("sm") {
   html {
     font-size: 15px;
@@ -348,9 +373,6 @@ tr:nth-last-child(1) {
   .card-2 {
     margin-left: 0px;
   }
-  mat-card.mat-card.card {
-    padding-left: 0px;
-  }
   mat-card.mat-card.card.table {
     padding-left: 10px;
   }
@@ -376,9 +398,6 @@ tr:nth-last-child(1) {
   .card-2 {
     margin-left: 0px;
   }
-  mat-card.mat-card.card {
-    padding-left: 0px;
-  }
   th,
   td {
     padding: 20px 10px !important;
@@ -400,9 +419,6 @@ tr:nth-last-child(1) {
   .card-1,
   .card-2 {
     margin-left: 0px;
-  }
-  mat-card.mat-card.card {
-    padding-left: 0px;
   }
   mat-card.mat-card.card.table {
     padding-left: 10px;
@@ -455,6 +471,12 @@ tr:nth-last-child(1) {
       color: $on-surface-dk;
       border: 1px dotted $c-grey;
       background-color: transparent;
+    }
+  }
+  mat-card.card-4 {
+    mat-card {
+      color: $on-background-dk;
+      // background: transparentize($color: $background-dk, $amount: 0.6);
     }
   }
 }

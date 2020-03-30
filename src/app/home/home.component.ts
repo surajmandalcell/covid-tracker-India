@@ -53,7 +53,7 @@ export class HomeComponent {
     console.log(this.newsData);
   }
 
-  getCountryData() {
+  async getCountryData() {
     this.httpClient.get(this.apiUrl + '/free-api?countryTotal=IN').subscribe((res: any) => {
       this.deathsIn = res.countrydata[0].total_deaths;
       this.confirmedIn = res.countrydata[0].total_cases;
@@ -64,7 +64,7 @@ export class HomeComponent {
     });
   }
 
-  getGlobalData() {
+  async getGlobalData() {
     this.httpClient.get(this.apiUrl + '/free-api?global=stats').subscribe((res: any) => {
       console.log(res);
       this.totalCases = res.results[0].total_cases;
@@ -77,7 +77,7 @@ export class HomeComponent {
     });
   }
 
-  getStateData() {
+  async getStateData() {
     this.httpClient.get(this.api2).subscribe((res: any) => {
       this.stateDataTotal = res.data.slice(-1)[0].summary;
       this.stateData = res.data.slice(-1)[0].regional;

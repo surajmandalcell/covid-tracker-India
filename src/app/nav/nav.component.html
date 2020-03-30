@@ -1,14 +1,17 @@
-<mat-card class="card card-4">
-  <mat-card matRipple>
+<mat-card class="card card-4 mat-elevation-z0">
+  <mat-card matTooltip="Home" [routerLink]="['/']" matRipple>
+    <mat-icon aria-hidden="false" aria-label="More Stats">home</mat-icon>
+  </mat-card>
+  <mat-card matTooltip="Show Charts"  [routerLink]="['/stats']"  matRipple>
     <mat-icon aria-hidden="false" aria-label="More Stats">trending_up</mat-icon>
   </mat-card>
-  <mat-card matRipple>
-    <mat-icon aria-hidden="false" aria-label="Contact">call</mat-icon>
+  <mat-card matTooltip="Awarness"  [routerLink]="['/stats']"  matRipple>
+    <img class="mat-icon" src="./../../assets/icons/hand-sparkles-solid.svg" aria-hidden="false" aria-label="Awarness">
   </mat-card>
-  <mat-card matRipple>
-    <mat-icon aria-hidden="false" aria-label="Health">lock</mat-icon>
+  <mat-card matTooltip="News" [routerLink]="['/news']" matRipple>
+    <img class="mat-icon" src="./../../assets/icons/newspaper.svg" aria-hidden="false" aria-label="News">
   </mat-card>
-  <mat-card matRipple>
+  <mat-card matTooltip="About" [routerLink]="['/about']" matRipple>
     <mat-icon aria-hidden="false" aria-label="About">info</mat-icon>
   </mat-card>
 </mat-card>

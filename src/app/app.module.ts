@@ -11,12 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { environment } from '../environments/environment';
+import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AwarnessComponent } from './awarness/awarness.component';
+import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
-import { HeaderComponent } from './header/header.component';
-import { AboutComponent } from './about/about.component';
+import { NewsComponent } from './news/news.component';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     NavComponent,
     HeaderComponent,
-    AboutComponent
+    AboutComponent,
+    NewsComponent,
+    AwarnessComponent,
+    StatsComponent,
   ],
   imports: [
     BrowserModule,

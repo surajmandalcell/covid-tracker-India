@@ -298,8 +298,17 @@ mat-card.card-4 {
     margin-right: 10px;
   }
   .mat-icon {
-    filter: brightness(1) invert(0);
     opacity: 0.5;
+    filter: brightness(1) invert(0);
+  }
+  @include res('xs'){
+    left: 0px;
+    bottom: 0px;
+    width: 100vw;
+    padding: 0px;
+    position: fixed;
+    margin-bottom: 0px;
+    border-radius: 0px;
   }
 }
 
@@ -360,6 +369,9 @@ tr:nth-last-child(1) {
 
 // Media Queries
 @include res("xs") {
+  body{
+    padding-bottom: 6vh !important;
+  }
   mat-card.card-2 {
     mat-card-content {
       div {

@@ -15,8 +15,6 @@ export class HomeComponent {
   activeIn: number;
   confirmedIn: number;
   recoveredIn: number;
-  newDeathsTodayIn: number;
-  newConfirmedTodayIn: number;
 
   // Global Data
   newCases: number;
@@ -37,7 +35,7 @@ export class HomeComponent {
 
   // Api url
   readonly apiUrl = 'https://thevirustracker.com';
-  readonly api2 = 'https://api.rootnet.in/covid19-in/stats/daily';
+  readonly api2 = 'https://api.rootnet.in';
 
   displayedColumns: string[] = ['loc', 'confirmedCasesIndian', 'confirmedCasesForeign', 'discharged', 'deaths'];
   newsColumns: string[] = ['image', 'title', 'time'];
@@ -54,13 +52,11 @@ export class HomeComponent {
   }
 
   async getCountryData() {
-    this.httpClient.get(this.apiUrl + '/free-api?countryTotal=IN').subscribe((res: any) => {
-      this.deathsIn = res.countrydata[0].total_deaths;
-      this.confirmedIn = res.countrydata[0].total_cases;
-      this.activeIn = res.countrydata[0].total_active_cases;
-      this.recoveredIn = res.countrydata[0].total_recovered;
-      this.newDeathsTodayIn = res.countrydata[0].total_new_deaths_today;
-      this.newConfirmedTodayIn = res.countrydata[0].total_new_cases_today;
+    this.httpClient.get(this.api2 + '/covid19-in/unofficial/covid19india.org/statewise').subscribe((res: any) => {
+      this.deathsIn = res.data.total.deaths;
+      this.activeIn = res.data.total.active;
+      this.confirmedIn = res.data.total.confirmed;
+      this.recoveredIn = res.data.total.recovered;
     });
   }
 
@@ -78,11 +74,12 @@ export class HomeComponent {
   }
 
   async getStateData() {
-    this.httpClient.get(this.api2).subscribe((res: any) => {
-      this.stateDataTotal = res.data.slice(-1)[0].summary;
-      this.stateData = res.data.slice(-1)[0].regional;
+    this.httpClient.get(this.api2 + '/covid19-in/stats/latest').subscribe((res: any) => {
+      // this.stateDataTotal = res.data.slice(-1)[0].summary;
+      this.stateDataTotal = res.data.summary;
+      this.stateData = res.data.regional;
       var total:stateTable={
-        loc: "Total",
+        loc: "Total Active",
         confirmedCasesIndian: this.stateDataTotal.confirmedCasesIndian,
         confirmedCasesForeign: this.stateDataTotal.confirmedCasesForeign,
         discharged: this.stateDataTotal.discharged,

@@ -1,7 +1,7 @@
 <div class="navBar">
   <img [routerLink]="['']" src="assets/img/coronaLogo.svg" alt="corona logo svg" class="logoImg" matRipple>
   <h1 [routerLink]="['']" matRipple>{{title}}</h1>
-  <button class="pushRight themeToggle" matTooltip="Switch theme" (click)="toggle()">
+  <button class="pushRight themeToggle" aria-label="Right Align" matTooltip="Switch theme" (click)="toggle()">
     <mat-icon>wb_sunny</mat-icon>
   </button>
 </div>

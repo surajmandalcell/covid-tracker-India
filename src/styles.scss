@@ -18,6 +18,7 @@ $c-green: #87bb99;
 $c-orange: #f28d52;
 $c-blue: rgb(124, 124, 206);
 
+$border-radius-main: 6px;
 $card-content-margin: 26px;
 
 // Mixins
@@ -132,7 +133,7 @@ h1 {
 
 //Default card class
 mat-card.card {
-  border-radius: 8px;
+  border-radius: $border-radius-main;
   padding-bottom: 2vh;
   margin-bottom: 20px;
   font-family: inherit;
@@ -287,7 +288,6 @@ mat-card.card-4 {
     max-width: 200px;
     box-shadow: none;
     align-items: center;
-    border-radius: 10px;
     justify-content: center;
     &:focus, &:active{
       border: none;
@@ -309,6 +309,7 @@ mat-card.card-4 {
     position: fixed;
     margin-bottom: 0px;
     border-radius: 0px;
+    box-shadow: 0px -1px 4px 0px #adadad61;
   }
 }
 

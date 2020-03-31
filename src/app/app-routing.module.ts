@@ -10,9 +10,9 @@ import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent },
   { path: 'stats', component: StatsComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'awareness', component: AwarnessComponent },
 ];
 

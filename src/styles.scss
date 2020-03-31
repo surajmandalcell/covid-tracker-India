@@ -3,7 +3,7 @@
 // Variables
 
 $font-default: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
-sans-serif;
+  sans-serif;
 
 $background-lt: #eeeef3;
 $background-dk: #212121;
@@ -289,7 +289,8 @@ mat-card.card-4 {
     box-shadow: none;
     align-items: center;
     justify-content: center;
-    &:focus, &:active{
+    &:focus,
+    &:active {
       border: none;
       outline: none;
     }
@@ -301,7 +302,7 @@ mat-card.card-4 {
     opacity: 0.5;
     filter: brightness(1) invert(0);
   }
-  @include res('xs'){
+  @include res("xs") {
     left: 0px;
     bottom: 0px;
     width: 100vw;
@@ -319,9 +320,10 @@ mat-card.card.card-9 {
   font-size: 1.4rem;
   a {
     text-decoration: none;
-    color: #2A594C;
-    &:hover, &:focus{
-      color: #49A69C;
+    color: #2a594c;
+    &:hover,
+    &:focus {
+      color: #49a69c;
     }
   }
   @include res("xs") {
@@ -344,6 +346,20 @@ table.mat-table {
   margin: auto;
   font-family: $font-default;
   background-color: transparent;
+  @include res("xs") {
+    th.mat-header-cell,
+    td.mat-cell {
+      font-size: 0.8rem;
+      padding: 20px 3px;
+    }
+    tr th.mat-header-cell:nth-child(1),
+    tr td.mat-cell:nth-child(1){
+      padding-right: 2vw;
+    }
+    tr td.mat-cell:nth-child(1){
+      font-size: 0.9rem;
+    }
+  }
 }
 
 tr:nth-last-child(1) {
@@ -370,15 +386,8 @@ tr:nth-last-child(1) {
 
 // Media Queries
 @include res("xs") {
-  body{
+  body {
     padding-bottom: 6vh !important;
-  }
-  mat-card.card-2 {
-    mat-card-content {
-      div {
-        margin-left: 3% !important;
-      }
-    }
   }
 }
 
@@ -396,11 +405,6 @@ tr:nth-last-child(1) {
   .card.table {
     overflow-x: scroll;
     overflow-y: hidden;
-  }
-  th,
-  th.mat-header-cell,
-  td {
-    padding: 20px 10px !important;
   }
   .two {
     display: block;

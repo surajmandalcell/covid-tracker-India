@@ -6,7 +6,7 @@ import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  dark:boolean=true;
+  dark:boolean=false;
 
   getDark(theme:boolean){
     this.dark = theme;

@@ -1,7 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { stateTable, newsTable } from './../models/general';
+import { stateTable } from './../models/general';
 
 @Component({
   selector: 'app-home',
@@ -29,26 +29,16 @@ export class HomeComponent {
   stateDataTotal: any;
   stateData: stateTable[];
 
-  // News Data
-  newsData = [];
-  showNews: newsTable[];
-
   // Api url
   readonly apiUrl = 'https://thevirustracker.com';
   readonly api2 = 'https://api.rootnet.in';
 
   displayedColumns: string[] = ['loc', 'confirmedCasesIndian', 'confirmedCasesForeign', 'discharged', 'deaths'];
-  newsColumns: string[] = ['image', 'title', 'time'];
 
   constructor(public httpClient: HttpClient, private elementRef: ElementRef) {
     this.getCountryData();
     this.getGlobalData();
     this.getStateData();
-  }
-
-  consol(){
-    console.log();
-    console.log(this.newsData);
   }
 
   async getCountryData() {
@@ -62,7 +52,6 @@ export class HomeComponent {
 
   async getGlobalData() {
     this.httpClient.get(this.apiUrl + '/free-api?global=stats').subscribe((res: any) => {
-      console.log(res);
       this.totalCases = res.results[0].total_cases;
       this.totalDead = res.results[0].total_deaths;
       this.totalRecovered = res.results[0].total_recovered;

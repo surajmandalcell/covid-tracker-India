@@ -314,23 +314,47 @@ mat-card.card-4 {
   }
 }
 
+// About Card
+.dark-mode .card.card-9{
+  a{
+    color: #dfdfdf;
+  }
+}
+
 mat-card.card.card-9 {
   padding: 4vw;
   padding-top: 2vw;
   font-size: 1.4rem;
+  p{
+    font-family: 'Open Sans Light', $font-default;
+  }
   a {
+    color: #333;
+    margin-right: 2vw;
     text-decoration: none;
-    color: #2a594c;
     &:hover,
     &:focus {
       color: #49a69c;
     }
   }
+  .github-link{
+    color: #7eb764;
+  }
+  .dribbble-link{
+    color: #c3507d;
+  }
+  .artstation-link{
+    color: #13aff0;
+  }
   @include res("xs") {
     font-size: 1.2rem;
     padding-bottom: 50px;
+    a{
+      margin-right: 4vw;
+    }
   }
 }
+
 
 *[ng-reflect-router-link]:hover {
   cursor: pointer;
@@ -528,6 +552,7 @@ tr:nth-last-child(1) {
       background-color: transparent;
     }
   }
+  // Navigation card
   mat-card.card-4 {
     mat-card {
       color: $on-background-dk;

@@ -1,21 +1,31 @@
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
+import { ThemeService } from './services/theme.service';
+import { Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  dark:boolean=false;
+export class AppComponent {
+  dark: boolean = !!localStorage.getItem('theme');
+  subscription: any;
 
-  getDark(theme:boolean){
-    this.dark = theme;
-    console.log("parent emit")
+  constructor(
+    private renderer: Renderer2,
+    private theme: ThemeService
+  ) {
+    this.setTheme();
+    this.subscription = theme.darkObs.subscribe((val)=>{
+      this.dark = val;
+      this.setTheme();
+    })
   }
 
-  constructor(private changeDetectorRef: ChangeDetectorRef){}
-
-  ngOnInit(): void{
-    this.changeDetectorRef.detectChanges();
+  setTheme(){
+    if (this.dark) {
+      this.renderer.addClass(document.body, 'dark-mode');
+    } else {
+      this.renderer.removeClass(document.body, 'dark-mode');
+    }
   }
 }

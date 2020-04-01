@@ -1,4 +1,6 @@
+import { DatastoreService } from './../services/datastore.service';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-news',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DatastoreService,public httpClient: HttpClient) { }
 
   ngOnInit(): void {
+    this.data.getNews();
   }
 
 }

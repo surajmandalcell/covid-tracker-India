@@ -24,11 +24,11 @@ export class ThemeService {
 
   goLight() {
     this.darkObs.next(false);
-    localStorage.setItem('theme', 'false');
+    localStorage.setItem('theme', '');
   }
 
   constructor() {
-    if (this.isDark) {
+    if (this.dark) {
       this.goDark();
     }
   }

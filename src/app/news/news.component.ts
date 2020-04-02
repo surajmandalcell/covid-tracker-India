@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewsComponent implements OnInit {
 
-  constructor(private data: DatastoreService,public httpClient: HttpClient) { 
+  constructor(public data: DatastoreService,public httpClient: HttpClient) {
     data.getNews();
   }
 

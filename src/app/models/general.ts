@@ -6,12 +6,12 @@ export interface stateTable {
   deaths: number;
 }
 
-export interface newsTable{
-  newsid: string;
+export interface news{
   title: string;
-  image: string;
-  time: string;
+  imageUrl: string;
+  date: any;
   url: string;
+  discription: string;
 }
 
 export interface Item {

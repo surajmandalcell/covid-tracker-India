@@ -1,3 +1,4 @@
+import { news } from './../models/general';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { stateTable } from '../models/general';
@@ -7,7 +8,7 @@ import { stateTable } from '../models/general';
 })
 export class DatastoreService {
   // News
-  news: any;
+  News: news[];
 
   // India stats
   India = {
@@ -38,6 +39,7 @@ export class DatastoreService {
     rootnet: 'https://api.rootnet.in',
     thevirustracker: 'https://thevirustracker.com',
     chris: 'https://covid19-server.chrismichael.now.sh',
+    surajmandalcell: 'https://raw.githubusercontent.com/surajmandalcell/covid-tracker-India/gh-pages/news.json',
   }
   params={
     // chris
@@ -69,9 +71,10 @@ export class DatastoreService {
     });
   }
 
-  // Get global statistics using chris api
+  // Get GLOBAL statistics using chris api
   async getGlobalData() {
     this.httpClient.get(this.api.chris + this.params.globalData).subscribe((res: any) => {
+      console.log('inside api 1');
       // The day is reset after midnight GMT+0
       const reports = res.reports[0].table[0].slice(-1)[0];
       this.Global.totalCases = this.sanitize(reports.TotalCases);
@@ -92,6 +95,7 @@ export class DatastoreService {
   // Using thevirustracker
   async getGlobalData2() {
     this.httpClient.get(this.api.thevirustracker + this.params.globalData2).subscribe((res: any) => {
+      console.log('inside api 2')
       this.Global.totalCases = res.result[0].total_cases;
       this.Global.totalDead = res.result[0].total_deaths;
       this.Global.totalRecovered = res.result[0].total_recovered;
@@ -102,7 +106,7 @@ export class DatastoreService {
     });
   }
 
-  getStateData() {
+  async getStateData() {
     this.httpClient.get(this.api.rootnet + this.params.stateWiseData).subscribe((res: any) => {
       // this.stateDataTotal = res.data.slice(-1)[0].summary;
       this.stateDataTotal = res.data.summary;
@@ -118,9 +122,11 @@ export class DatastoreService {
     })
   }
 
-  getNews() {
-    this.httpClient.get(this.api.thevirustracker).subscribe((res: any) => {
+  async getNews() {
+    this.httpClient.get(this.api.surajmandalcell).subscribe((res: any) => {
       console.log(res);
+      this.News = res.articles;
+      console.log(this.News);
     });
   }
 

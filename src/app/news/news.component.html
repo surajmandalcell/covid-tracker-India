@@ -1,3 +1,13 @@
 <mat-card class="card card-8 mat-elevation-z0">
-  <p>News api are expensive, so working on making my own server that serves news api as per my needs :)</p>
+  <p>News page is still work in progress</p>
+  <mat-card class="newsCard" *ngFor="let article of data.News">
+    <mat-card-header>
+      <mat-card-title>{{article.title}}</mat-card-title>
+      <mat-card-subtitle>{{article.date}}</mat-card-subtitle>
+    </mat-card-header>
+    <img matListAvatar src={{article.imageUrl}}>
+    <mat-card-content>
+      <p>{{article.discription}}</p>
+    </mat-card-content>
+  </mat-card>
 </mat-card>

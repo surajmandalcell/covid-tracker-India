@@ -35,11 +35,12 @@ export class DatastoreService {
 
   // Api links
   api = {
-    thevirustracker: 'https://thevirustracker.com',
     rootnet: 'https://api.rootnet.in',
+    thevirustracker: 'https://thevirustracker.com',
+    chris: 'https://covid19-server.chrismichael.now.sh',
   }
 
-  constructor(public httpClient: HttpClient) { 
+  constructor(public httpClient: HttpClient) {
     this.getCountryData();
     this.getGlobalData();
     this.getStateData();
@@ -57,14 +58,16 @@ export class DatastoreService {
 
   // Get global statistics
   async getGlobalData() {
-    this.httpClient.get(this.api.thevirustracker + '/free-api?global=stats').subscribe((res: any) => {
-      this.Global.totalCases = res.results[0].total_cases;
-      this.Global.totalDead = res.results[0].total_deaths;
-      this.Global.totalRecovered = res.results[0].total_recovered;
-      this.Global.newCases = res.results[0].total_new_cases_today;
-      this.Global.newDeaths = res.results[0].total_new_deaths_today;
-      this.Global.totalActiveCases = res.results[0].total_active_cases;
-      this.Global.totalSeriousCases = res.results[0].total_serious_cases;
+    this.httpClient.get(this.api.chris + '/api/v1/AllReports').subscribe((res: any) => {
+      // The day is reset after midnight GMT+0
+      const reports = res.reports[0].table[0].slice(-1)[0];
+      this.Global.totalCases = this.sanitize(reports.TotalCases);
+      this.Global.totalDead = this.sanitize(reports.TotalDeaths);
+      this.Global.totalRecovered = this.sanitize(reports.TotalRecovered);
+      this.Global.newCases = this.sanitize(reports.NewCases);
+      this.Global.newDeaths = this.sanitize(reports.NewDeaths);
+      this.Global.totalActiveCases = this.sanitize(reports.ActiveCases);
+      this.Global.totalSeriousCases = this.sanitize(reports.Serious_Critical);
     });
   }
 
@@ -88,5 +91,9 @@ export class DatastoreService {
     this.httpClient.get(this.api.rootnet + '/covid19-in/unofficial/covid19india.org/statewise').subscribe((res: any) => {
       console.log(res);
     });
+  }
+
+  sanitize(value:any): string{
+    return value.replace(/[^a-zA-Z0-9]/g, "");
   }
 }

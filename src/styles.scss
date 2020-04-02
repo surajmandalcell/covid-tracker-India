@@ -5,6 +5,7 @@
 $font-default: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
   sans-serif;
 
+$black: #000;
 $background-lt: #eeeef3;
 $background-dk: #212121;
 $surface-dk: #121212;
@@ -518,7 +519,7 @@ tr:nth-last-child(1) {
 // Dark Mode styles
 
 .dark-mode {
-  background: #000;
+  background: $black;
   .navBar {
     h1 {
       color: $on-background-dk;

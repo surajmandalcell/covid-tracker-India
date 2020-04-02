@@ -1,5 +1,6 @@
 import { ThemeService } from './services/theme.service';
 import { Component, Renderer2 } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,11 @@ import { Component, Renderer2 } from '@angular/core';
 })
 export class AppComponent {
   dark: boolean = !!localStorage.getItem('theme');
-  subscription: any;
+  subscription: Subscription;
 
   constructor(
     private renderer: Renderer2,
-    private theme: ThemeService
+    theme: ThemeService
   ) {
     this.setTheme();
     this.subscription = theme.darkObs.subscribe((val)=>{

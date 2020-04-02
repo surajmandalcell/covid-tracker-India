@@ -46,6 +46,8 @@ export class DatastoreService {
     fatalityRateBySex: '/api/v1/FatalityRateBySex',
     fatalityRateByAge: '/api/v1/FatalityRateByAge',
     fatalityRateByComorbidities: '/api/v1/FatalityRateByComorbidities',
+    // Thevirustracker
+    globalData2: '/free-api?global=stats',
     // rootnet
     stateWiseData: '/covid19-in/stats/latest',
     countryData: '/covid19-in/unofficial/covid19india.org/statewise',
@@ -67,11 +69,10 @@ export class DatastoreService {
     });
   }
 
-  // Get global statistics
+  // Get global statistics using chris api
   async getGlobalData() {
     this.httpClient.get(this.api.chris + this.params.globalData).subscribe((res: any) => {
       // The day is reset after midnight GMT+0
-      console.log(res.reports[0]);
       const reports = res.reports[0].table[0].slice(-1)[0];
       this.Global.totalCases = this.sanitize(reports.TotalCases);
       this.Global.totalDead = this.sanitize(reports.TotalDeaths);
@@ -80,6 +81,24 @@ export class DatastoreService {
       this.Global.newDeaths = this.sanitize(reports.NewDeaths);
       this.Global.totalActiveCases = this.sanitize(reports.ActiveCases);
       this.Global.totalSeriousCases = this.sanitize(reports.Serious_Critical);
+    },
+    (error)=>{
+      console.log(error);
+      this.getGlobalData2();
+    });
+  }
+
+
+  // Using thevirustracker
+  async getGlobalData2() {
+    this.httpClient.get(this.api.thevirustracker + this.params.globalData2).subscribe((res: any) => {
+      this.Global.totalCases = res.result[0].total_cases;
+      this.Global.totalDead = res.result[0].total_deaths;
+      this.Global.totalRecovered = res.result[0].total_recovered;
+      this.Global.newCases = res.result[0].total_new_cases_today;
+      this.Global.newDeaths = res.result[0].total_new_deaths_today;
+      this.Global.totalActiveCases = res.result[0].total_active_cases;
+      this.Global.totalSeriousCases = res.result[0].total_serious_cases;
     });
   }
 

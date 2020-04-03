@@ -1,13 +1,15 @@
 <mat-card class="card card-8 mat-elevation-z0">
-  <p>News page is still work in progress</p>
-  <mat-card class="newsCard" *ngFor="let article of data.News">
+  <div class="disclamer disclamer-1">
+    <p>News page is still work in progress</p>
+  </div>
+  <mat-card class="newsCard mat-elevation-z0" *ngFor="let article of data.News">
     <mat-card-header>
       <mat-card-title>{{article.title}}</mat-card-title>
       <mat-card-subtitle>{{article.date}}</mat-card-subtitle>
     </mat-card-header>
-    <img matListAvatar src={{article.imageUrl}}>
+    <img matListAvatar src={{article.imageUrl}} mat-elevation-z1>
     <mat-card-content>
-      <p>{{article.discription}}</p>
+      <h3>{{article.discription}}</h3>
     </mat-card-content>
   </mat-card>
 </mat-card>

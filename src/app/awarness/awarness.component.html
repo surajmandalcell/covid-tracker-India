@@ -127,22 +127,31 @@
       <p>Helpline : +91-11-23978046 or 1075</p>
       <p>Help E-Mail : ncov2019@gov.in</p>
     </div>
+
     <div class="teleTable">
-      <table mat-table [dataSource]="data.Contacts" class="mat-elevation-z0">
+      <mat-expansion-panel class="mat-elevation-z0">
+        <mat-expansion-panel-header matRipple>
+          Regional Numbers
+        </mat-expansion-panel-header>
 
-        <ng-container matColumnDef="loc">
-          <th mat-header-cell *matHeaderCellDef> Location </th>
-          <td mat-cell *matCellDef="let element"> {{element.loc}} </td>
-        </ng-container>
+        <ng-template matExpansionPanelContent>
+          <table mat-table [dataSource]="data.Contacts" class="mat-elevation-z0">
 
-        <ng-container matColumnDef="number">
-          <th mat-header-cell *matHeaderCellDef> Number </th>
-          <td mat-cell *matCellDef="let element"> {{element.number}} </td>
-        </ng-container>
+            <ng-container matColumnDef="loc">
+              <th mat-header-cell *matHeaderCellDef> Location </th>
+              <td mat-cell *matCellDef="let element"> {{element.loc}} </td>
+            </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="data.contactColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: data.contactColumns;"></tr>
-      </table>
+            <ng-container matColumnDef="number">
+              <th mat-header-cell *matHeaderCellDef> Number </th>
+              <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="data.contactColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: data.contactColumns;"></tr>
+          </table>
+        </ng-template>
+      </mat-expansion-panel>
     </div>
   </mat-card>
 </div>

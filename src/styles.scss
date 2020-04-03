@@ -737,11 +737,19 @@ tr:nth-last-child(1) {
   }
   // Awareness card
   div.card-7 {
+    .summary{
+      a{
+        color: cyan;
+      }
+      .mat-expansion-panel-header-description, .mat-expansion-indicator::after{
+        color: rgba(255, 255, 255, 0.54);
+      }
+    }
     .prevention {
       .gridSection {
         .gridCard {
           img {
-            filter: brightness(0) invert(1);
+            filter: brightness(2) contrast(0.5);
           }
         }
       }

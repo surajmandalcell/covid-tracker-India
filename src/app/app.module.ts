@@ -4,10 +4,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
@@ -36,7 +37,6 @@ import { StatsComponent } from './stats/stats.component';
   imports: [
     BrowserModule,
     MatCardModule,
-    MatListModule,
     MatIconModule,
     MatTableModule,
     MatButtonModule,
@@ -44,6 +44,8 @@ import { StatsComponent } from './stats/stats.component';
     HttpClientModule,
     AppRoutingModule,
     MatTooltipModule,
+    MatGridListModule,
+    MatExpansionModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

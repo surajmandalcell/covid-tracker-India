@@ -10,8 +10,8 @@ $background-lt: #eeeef3;
 $background-dk: #212121;
 $surface-dk: #121212;
 $primary-dk: #252525;
-$on-background-dk: #a7a7a7;
 $on-surface-dk: #909090;
+$on-background-dk: #a7a7a7;
 
 $c-red: #fc6262;
 $c-grey: #787878;
@@ -64,7 +64,9 @@ $breakpoints: (
 *,
 ::after,
 ::before {
+  font-weight: 300;
   box-sizing: inherit;
+  font-family: $font-default;
   transition: all ease-in-out 0.2s;
 }
 
@@ -74,13 +76,35 @@ body {
   padding-top: 2vh;
   padding-left: 2vw;
   padding-right: 2vw;
-  background-color: $background-lt;
+  transition: font-size 0s;
   font-family: $font-default;
+  background-color: $background-lt;
 }
 
 h1 {
   font-weight: 400;
-  font-size: 24px;
+}
+
+// Custom theme elements
+mat-expansion-panel.mat-expansion-panel {
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-shadow: 0px 1px 6px rgb(238, 238, 238);
+}
+
+.dark-mode mat-expansion-panel {
+  box-shadow: none;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  color: $on-surface-dk;
+  background: $surface-dk;
+  border: 1px dashed #222;
+  &:not(.mat-expanded):not([aria-disabled="true"]) {
+    .mat-expansion-panel-header:hover {
+      color: $on-surface-dk;
+      background: $surface-dk;
+    }
+  }
 }
 
 .navBar {
@@ -362,62 +386,114 @@ mat-card.card.card-9 {
   }
 }
 
-
 // News card
-mat-card.mat-card.card-8{
+mat-card.mat-card.card-8 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  .disclamer-1{
+  .disclamer-1 {
     width: 100%;
   }
 
-  mat-card.mat-card.newsCard{
+  mat-card.mat-card.newsCard {
     flex: 1;
     display: block;
     padding: 16px 4px 16px 4px;
-    mat-card-header.mat-card-header{
-      div.mat-card-header-text{
+    mat-card-header.mat-card-header {
+      div.mat-card-header-text {
         padding-left: 0px;
         margin: 0 16px 0 0;
         text-transform: capitalize;
       }
     }
-    img.mat-list-avatar{
+    img.mat-list-avatar {
       max-height: 200px;
       border-radius: 4px;
     }
-    .mat-card-content{
+    .mat-card-content {
       margin-top: 1vh;
-      h3{
+      h3 {
         font-weight: 300;
       }
     }
   }
 
-  @include res('xs'){
+  @include res("xs") {
     display: block;
-    mat-card.mat-card.newsCard{
-      img.mat-list-avatar{
+    mat-card.mat-card.newsCard {
+      img.mat-list-avatar {
         width: 100%;
       }
     }
   }
 
-  @include res('sm'){
-    mat-card.mat-card.newsCard{
-      img.mat-list-avatar{
+  @include res("sm") {
+    mat-card.mat-card.newsCard {
+      img.mat-list-avatar {
         width: 100%;
+      }
+    }
+  }
+
+  @include res("md") {
+    mat-card.mat-card.newsCard {
+      flex-basis: 25%;
+      width: auto;
+      img.mat-list-avatar {
+        width: 96%;
+      }
+    }
+  }
+}
+
+// Card 7
+
+div.card-7 {
+  mat-card.mat-card {
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0;
+    }
+    h4 {
+      opacity: 0.8;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+    p {
+      text-align: left;
+      font-size: 1rem;
+    }
+  }
+  .prevention{
+    .info{
+      display: flex;
+      margin-top: 6vh;
+      max-width: 740px;
+      justify-content: space-evenly;
+      img{
+        max-height: 200px;
+        padding-right: 6vw;
+      }
+      p{
+        line-height: 1.6rem;
+        max-width: 480px;
+      }
+    }
+    .gridSection{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      .gridCard{
+        padding: 1rem;
+        margin-top: 4rem;
       }
     }
   }
 
   @include res('md'){
-    mat-card.mat-card.newsCard{
-      flex-basis: 25%;
-      width: auto;
-      img.mat-list-avatar{
-        width: 96%;
+    .prevention{
+      .info{
+        margin-left: 0vw;
       }
     }
   }
@@ -535,6 +611,7 @@ tr:nth-last-child(1) {
 // Large devices (desktops, 992px and up)
 @include res("lg") {
   body {
+    font-size: 18px;
     padding: 0px;
     padding-top: 20px;
   }
@@ -558,6 +635,7 @@ tr:nth-last-child(1) {
 @include res("xlg") {
   body {
     padding: 0px;
+    font-size: 18px;
     padding-top: 20px;
   }
   mat-card.card-2 {
@@ -637,13 +715,25 @@ tr:nth-last-child(1) {
       opacity: 0.4;
     }
   }
+  // Awareness card
+  div.card-7{
+    .prevention{
+      .gridSection{
+        .gridCard{
+          img{
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
+    }
+  }
   // News Card
-  mat-card.mat-card.card-8{
-    mat-card.mat-card.newsCard{
+  mat-card.mat-card.card-8 {
+    mat-card.mat-card.newsCard {
       box-shadow: none;
       border: none;
-      .mat-card-header{
-        .mat-card-subtitle{
+      .mat-card-header {
+        .mat-card-subtitle {
           color: $on-surface-dk;
         }
       }

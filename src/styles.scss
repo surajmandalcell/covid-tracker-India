@@ -464,37 +464,57 @@ div.card-7 {
       font-size: 1rem;
     }
   }
-  .prevention{
-    .info{
+  .prevention {
+    .info {
       display: flex;
       margin-top: 6vh;
-      max-width: 740px;
-      justify-content: space-evenly;
-      img{
+      img {
         max-height: 200px;
         padding-right: 6vw;
+        padding-left: 2vw;
       }
-      p{
+      p {
         line-height: 1.6rem;
         max-width: 480px;
       }
     }
-    .gridSection{
+    .gridSection {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-      .gridCard{
+      .gridCard {
+        flex: 1;
         padding: 1rem;
         margin-top: 4rem;
+        text-align: center;
+      }
+    }
+  }
+  .contacts {
+    .staticContacts {
+      padding-left: 1vw;
+    }
+    .teleTable {
+      margin-top: 4vh;
+    }
+  }
+
+  @include res("xs") {
+    .contacts {
+      .staticContacts {
+        padding-left: 0vw;
       }
     }
   }
 
-  @include res('md'){
-    .prevention{
-      .info{
+  @include res("md") {
+    .prevention {
+      .info {
         margin-left: 0vw;
       }
+    }
+    .gridSection{
+      margin-top: 0vh;
     }
   }
 }
@@ -716,11 +736,11 @@ tr:nth-last-child(1) {
     }
   }
   // Awareness card
-  div.card-7{
-    .prevention{
-      .gridSection{
-        .gridCard{
-          img{
+  div.card-7 {
+    .prevention {
+      .gridSection {
+        .gridCard {
+          img {
             filter: brightness(0) invert(1);
           }
         }

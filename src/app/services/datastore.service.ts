@@ -1,4 +1,4 @@
-import { news } from './../models/general';
+import { news, contacts } from './../models/general';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { stateTable } from '../models/general';
@@ -9,6 +9,10 @@ import { stateTable } from '../models/general';
 export class DatastoreService {
   // News
   News: news[];
+
+  // Contacts
+  Contacts: contacts[];
+  contactColumns: string[] = ['loc', 'number'];
 
   // India stats
   India = {
@@ -51,15 +55,12 @@ export class DatastoreService {
     // Thevirustracker
     globalData2: '/free-api?global=stats',
     // rootnet
+    contacts: '/covid19-in/contacts',
     stateWiseData: '/covid19-in/stats/latest',
     countryData: '/covid19-in/unofficial/covid19india.org/statewise',
   }
 
-  constructor(public httpClient: HttpClient) {
-    this.getCountryData();
-    this.getGlobalData();
-    this.getStateData();
-  }
+  constructor(public httpClient: HttpClient) {}
 
   // Get India statistics
   async getCountryData() {
@@ -128,6 +129,13 @@ export class DatastoreService {
       this.News = res.articles;
       console.log(this.News);
     });
+  }
+  
+  async getContacts(){
+    this.httpClient.get(this.api.rootnet+ this.params.contacts).subscribe((res: any) => {
+      console.log(res.data.contacts.regional);
+      this.Contacts = res.data.contacts.regional;
+    })
   }
 
   sanitize(value:any): number{

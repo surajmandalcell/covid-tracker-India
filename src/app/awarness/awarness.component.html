@@ -36,7 +36,7 @@
       </div>
       <div class="gridCard">
         <img src="assets/icons/prevention/02.svg">
-        <div>Wash Hands</div>
+        <div>Cover Face</div>
       </div>
       <div class="gridCard">
         <img src="assets/icons/prevention/03.svg">
@@ -44,15 +44,15 @@
       </div>
       <div class="gridCard">
         <img src="assets/icons/prevention/04.svg">
-        <div>Wash Hands</div>
+        <div>Stay home</div>
       </div>
       <div class="gridCard">
         <img src="assets/icons/prevention/05.svg">
-        <div>Wash Hands</div>
+        <div>Social Distancing</div>
       </div>
       <div class="gridCard">
         <img src="assets/icons/prevention/06.svg">
-        <div>Wash Hands</div>
+        <div>Hygeine</div>
       </div>
     </span>
   </mat-card>
@@ -100,8 +100,7 @@
           and very few people will report diarrhoea, nausea or a runny nose.
         </li>
       </ul>
-      
-      <br>
+
 
       <p>People with mild symptoms who are otherwise healthy should self-isolate and contact their medical provider or a
         COVID-19 information line for advice on testing and referral.</p>
@@ -112,7 +111,27 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="card mat-elevation-z0">
-    <p>Covid-19 Helpline (IN) : +91-11-23978046 or 1075</p>
+  <mat-card class="card contacts mat-elevation-z0">
+    <div class="staticContacts">
+      <p>Helpline : +91-11-23978046 or 1075</p>
+      <p>Help E-Mail : ncov2019@gov.in</p>
+    </div>
+    <div class="teleTable">
+      <table mat-table [dataSource]="data.Contacts" class="mat-elevation-z0">
+
+        <ng-container matColumnDef="loc">
+          <th mat-header-cell *matHeaderCellDef> Location </th>
+          <td mat-cell *matCellDef="let element"> {{element.loc}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="number">
+          <th mat-header-cell *matHeaderCellDef> Number </th>
+          <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="data.contactColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: data.contactColumns;"></tr>
+      </table>
+    </div>
   </mat-card>
 </div>

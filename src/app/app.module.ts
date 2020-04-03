@@ -6,7 +6,9 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,6 +40,7 @@ import { StatsComponent } from './stats/stats.component';
     BrowserModule,
     MatCardModule,
     MatIconModule,
+    MatInputModule,
     MatTableModule,
     MatButtonModule,
     MatRippleModule,
@@ -46,6 +49,7 @@ import { StatsComponent } from './stats/stats.component';
     MatTooltipModule,
     MatGridListModule,
     MatExpansionModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

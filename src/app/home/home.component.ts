@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  constructor(public data: DatastoreService) {}
+  constructor(public data: DatastoreService) {
+    this.data.getCountryData();
+    this.data.getGlobalData();
+    this.data.getStateData();
+  }
 
 }

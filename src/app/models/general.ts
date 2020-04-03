@@ -14,6 +14,11 @@ export interface news{
   discription: string;
 }
 
+export interface contacts{
+  loc: string;
+  number: string;
+}
+
 export interface Item {
   id?:string;
   title?:string;

@@ -105,6 +105,9 @@ mat-expansion-panel.mat-expansion-panel {
       background: $surface-dk;
     }
   }
+  .mat-expansion-indicator::after{
+    color: rgba(255, 255, 255, 0.54);
+  }
 }
 
 .navBar {
@@ -740,9 +743,6 @@ tr:nth-last-child(1) {
     .summary{
       a{
         color: cyan;
-      }
-      .mat-expansion-panel-header-description, .mat-expansion-indicator::after{
-        color: rgba(255, 255, 255, 0.54);
       }
     }
     .prevention {

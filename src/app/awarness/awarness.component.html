@@ -58,56 +58,67 @@
   </mat-card>
 
   <mat-card class="card symptoms mat-elevation-z0">
-    <h3>Symptoms</h3>
     <mat-card-content>
-      <p>
-        The COVID-19 virus affects different people in different ways. COVID-19 is a respiratory disease and most
-        infected people will develop mild to moderate symptoms and recover without requiring special treatment. People
-        who have underlying medical conditions and those over 60 years old have a higher risk of developing severe
-        disease and death.
-      </p>
+      <mat-expansion-panel class="mat-elevation-z0">
+        <mat-expansion-panel-header matRipple>
+          <h3>Symptoms</h3>
+        </mat-expansion-panel-header>
 
-      <p>
-        Common symptoms include:
-      </p>
+        <ng-template matExpansionPanelContent>
+          <p>
+            The COVID-19 virus affects different people in different ways. COVID-19 is a respiratory disease and most
+            infected people will develop mild to moderate symptoms and recover without requiring special treatment.
+            People
+            who have underlying medical conditions and those over 60 years old have a higher risk of developing severe
+            disease and death.
+          </p>
 
-      <ul>
-        <li>
-          fever
-        </li>
-        <li>
-          tiredness
-        </li>
-        <li>
-          dry cough.
-        </li>
-      </ul>
-      <br>
+          <p>
+            Common symptoms include:
+          </p>
 
-      Other symptoms include:
+          <ul>
+            <li>
+              fever
+            </li>
+            <li>
+              tiredness
+            </li>
+            <li>
+              dry cough.
+            </li>
+          </ul>
+          <br>
 
-      <ul>
-        <li>
-          shortness of breath
-        </li>
-        <li>
-          aches and pains
-        </li>
-        <li>
-          sore throat
-        </li>
-        <li>
-          and very few people will report diarrhoea, nausea or a runny nose.
-        </li>
-      </ul>
+          Other symptoms include:
+
+          <ul>
+            <li>
+              shortness of breath
+            </li>
+            <li>
+              aches and pains
+            </li>
+            <li>
+              sore throat
+            </li>
+            <li>
+              and very few people will report diarrhoea, nausea or a runny nose.
+            </li>
+          </ul>
 
 
-      <p>People with mild symptoms who are otherwise healthy should self-isolate and contact their medical provider or a
-        COVID-19 information line for advice on testing and referral.</p>
+          <p>People with mild symptoms who are otherwise healthy should self-isolate and contact their medical provider
+            or a
+            COVID-19 information line for advice on testing and referral.</p>
 
-      <p>
-        People with fever, cough or difficulty breathing should call their doctor and seek medical attention.
-      </p>
+          <p>
+            People with fever, cough or difficulty breathing should call their doctor and seek medical attention.
+          </p>
+        </ng-template>
+      </mat-expansion-panel>
+
+
     </mat-card-content>
   </mat-card>
 

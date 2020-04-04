@@ -38,6 +38,11 @@ export class DatastoreService {
   stateData: stateTable[];
   displayedColumns: string[] = ['loc', 'confirmedCasesIndian', 'confirmedCasesForeign', 'discharged', 'deaths'];
 
+  // Graphs data
+  deathRateMen = [{"name": "Death Rate","value": 4.7},{"name": "Confirmed","value": 100}];
+  deathRateWomen = [{"name": "Death Rate","value": 2.8},{"name": "Confirmed","value": 100}];
+  deathRateByAge = [{"name": "80+","value": 14.8},{"name": "70-79","value": 8.0},{"name": "60-69","value": 3.6},{"name": "50-59","value": 1.3},{"name": "40-49","value": 0.4},{"name": "30-39","value": 0.2},{"name": "20-29","value": 0.2},{"name": "10-19 ","value": 8.0},{"name": "70-9","value": 0.0}];
+
   // Api links
   api = {
     rootnet: 'https://api.rootnet.in',
@@ -45,7 +50,7 @@ export class DatastoreService {
     chris: 'https://covid19-server.chrismichael.now.sh',
     surajmandalcell: 'https://raw.githubusercontent.com/surajmandalcell/covid-tracker-India/gh-pages/news.json',
   }
-  params={
+  params = {
     // chris
     globalData: '/api/v1/AllReports',
     globalDeathsOverTime: '/api/v1/Deaths',
@@ -60,7 +65,7 @@ export class DatastoreService {
     countryData: '/covid19-in/unofficial/covid19india.org/statewise',
   }
 
-  constructor(public httpClient: HttpClient) {}
+  constructor(public httpClient: HttpClient) { }
 
   // Get India statistics
   async getCountryData() {
@@ -86,10 +91,10 @@ export class DatastoreService {
       this.Global.totalActiveCases = this.sanitize(reports.ActiveCases);
       this.Global.totalSeriousCases = this.sanitize(reports.Serious_Critical);
     },
-    (error)=>{
-      console.log(error);
-      this.getGlobalData2();
-    });
+      (error) => {
+        console.log(error);
+        this.getGlobalData2();
+      });
   }
 
 
@@ -130,15 +135,15 @@ export class DatastoreService {
       console.log(this.News);
     });
   }
-  
-  async getContacts(){
-    this.httpClient.get(this.api.rootnet+ this.params.contacts).subscribe((res: any) => {
+
+  async getContacts() {
+    this.httpClient.get(this.api.rootnet + this.params.contacts).subscribe((res: any) => {
       console.log(res.data.contacts.regional);
       this.Contacts = res.data.contacts.regional;
     })
   }
 
-  sanitize(value:any): number{
+  sanitize(value: any): number {
     return value.replace(/[^a-zA-Z0-9]/g, "");
   }
 }

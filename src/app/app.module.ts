@@ -25,6 +25,8 @@ import { NavComponent } from './nav/nav.component';
 import { NewsComponent } from './news/news.component';
 import { StatsComponent } from './stats/stats.component';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,7 @@ import { StatsComponent } from './stats/stats.component';
     MatInputModule,
     MatTableModule,
     MatButtonModule,
+    NgxChartsModule,
     MatRippleModule,
     HttpClientModule,
     AppRoutingModule,

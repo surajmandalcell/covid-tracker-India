@@ -1,3 +1,38 @@
-<mat-card class="card card-6 mat-elevation-z0">
-  <p>Stats works</p>
-</mat-card>
+<div class="card-6">
+  <mat-card class="card mat-elevation-z0">
+    <mat-card-content class="chartsHolder">
+      <h2>Mortality Rate, Men/Women</h2>
+      <div class="chartDiv">
+        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="data.deathRateMen" [gradient]="pieChartCommon.gradient"
+          [legend]="pieChartCommon.showLegend" [legendPosition]="pieChartCommon.legendPosition"
+          [legendTitle]="title.pie1" [animations]="pieChartCommon.animations"
+          [tooltipDisabled]="pieChartCommon.tooltipDisabled" [labels]="pieChartCommon.showLabels"
+          [doughnut]="pieChartCommon.isDoughnut" (select)="onSelect($event)" (activate)="onActivate($event)"
+          (deactivate)="onDeactivate($event)">
+        </ngx-charts-pie-chart>
+      </div>
+      <div class="chartDiv">
+        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="data.deathRateWomen"
+          [gradient]="pieChartCommon.gradient" [legend]="pieChartCommon.showLegend"
+          [legendPosition]="pieChartCommon.legendPosition" [legendTitle]="title.pie2"
+          [animations]="pieChartCommon.animations" [tooltipDisabled]="pieChartCommon.tooltipDisabled"
+          [labels]="pieChartCommon.showLabels" [doughnut]="pieChartCommon.isDoughnut" (select)="onSelect($event)"
+          (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+        </ngx-charts-pie-chart>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card mat-elevation-z0">
+    <mat-card-content class="chartsHolder">
+      <h2>Mortality Rate by Age</h2>
+      <div class="chartDiv">
+        <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="data.deathRateByAge" [gradient]="barChart.gradient" [legendPosition]="barChart.legendPosition"
+          [xAxis]="barChart.showXAxis" [yAxis]="barChart.showYAxis" [legend]="barChart.showLegend" [showXAxisLabel]="barChart.showXAxisLabel"
+          [showYAxisLabel]="barChart.showYAxisLabel" [xAxisLabel]="barChart.xAxisLabel" [yAxisLabel]="barChart.yAxisLabel"
+          (select)="onSelect($event)">
+        </ngx-charts-bar-vertical>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

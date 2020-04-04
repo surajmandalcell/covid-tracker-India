@@ -105,7 +105,7 @@ mat-expansion-panel.mat-expansion-panel {
       background: $surface-dk;
     }
   }
-  .mat-expansion-indicator::after{
+  .mat-expansion-indicator::after {
     color: rgba(255, 255, 255, 0.54);
   }
 }
@@ -516,8 +516,32 @@ div.card-7 {
         margin-left: 0vw;
       }
     }
-    .gridSection{
+    .gridSection {
       margin-top: 0vh;
+    }
+  }
+}
+
+.card-6 {
+  .chartsHolder {
+    display: flex;
+    flex-wrap: wrap;
+    h2{
+      width: 100%;
+      display: block;
+    }
+    .chartDiv {
+      flex: 1;
+      margin-top: 2vh;
+      max-height: 400px;
+    }
+  }
+  mat-card.card:nth-child(2){
+    background: #928a8a;
+    .chartsHolder{
+      h2{
+        color: rgb(212, 212, 212);
+      }
     }
   }
 }
@@ -740,8 +764,8 @@ tr:nth-last-child(1) {
   }
   // Awareness card
   div.card-7 {
-    .summary{
-      a{
+    .summary {
+      a {
         color: cyan;
       }
     }

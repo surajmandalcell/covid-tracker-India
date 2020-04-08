@@ -1,6 +1,9 @@
 {
-  "name": "covid-tracker-india",
-  "version": "0.0.0",
+  "name": "com.covidtrackerindia.surajmandalcell",
+  "version": "1.0.0",
+  "description": "Covid-19 Pandemic tracker for India",
+  "author": "Suraj Mandal",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

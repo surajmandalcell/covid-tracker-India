@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://covid-19-india.netlify.com</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://covid-19-india.netlify.com/stats</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://covid-19-india.netlify.com/awareness</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://covid-19-india.netlify.com/news</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://covid-19-india.netlify.com/about</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>

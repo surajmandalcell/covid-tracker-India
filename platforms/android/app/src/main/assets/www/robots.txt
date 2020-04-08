@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://covid-19-india.netlify.com/sitemap.xml

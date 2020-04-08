@@ -1,0 +1,106 @@
+{
+  "configVersion": 1,
+  "timestamp": 1586344635847,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.a3fe0fb0d2668d60442f.js",
+        "/main-es5.a3fe0fb0d2668d60442f.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.1f913f16a2d346cc8bdc.js",
+        "/polyfills-es5.1a3c78b07cd6f16c6e9a.js",
+        "/runtime-es2015.0811dcefd377500b5b1a.js",
+        "/runtime-es5.0811dcefd377500b5b1a.js",
+        "/styles.83087cb66cb6ba7a5980.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/hand-sparkles-solid.svg",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/icons/newspaper.svg",
+        "/assets/icons/prevention/01.svg",
+        "/assets/icons/prevention/02.svg",
+        "/assets/icons/prevention/03.svg",
+        "/assets/icons/prevention/04.svg",
+        "/assets/icons/prevention/05.svg",
+        "/assets/icons/prevention/06.svg",
+        "/assets/icons/small-info.svg",
+        "/assets/img/coronaLogo.png",
+        "/assets/img/coronaLogo.svg",
+        "/assets/img/doctor-woman.svg",
+        "/assets/img/translation.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/hand-sparkles-solid.svg": "51a1acf71fc74651401e25460a18a41595bc7d0f",
+    "/assets/icons/icon-128x128.png": "b43e5da2d6bfb27fcad9c70ae39966aeec3b380c",
+    "/assets/icons/icon-144x144.png": "6ed7776cd5f60bd5995338fc66be4f4d37eb231f",
+    "/assets/icons/icon-152x152.png": "0cc5e2e206e0053f614aab53500e96eb4a600463",
+    "/assets/icons/icon-192x192.png": "93e24731789c0eafdfefa96dca23b2cb9c28229a",
+    "/assets/icons/icon-384x384.png": "a3cabdf29bb94e48e2911625ef27088293233452",
+    "/assets/icons/icon-512x512.png": "b88b0a37fd6741f7f656240f25463ce18fab7d28",
+    "/assets/icons/icon-72x72.png": "659bb5d824e15938c4b68553cf71321991ac086d",
+    "/assets/icons/icon-96x96.png": "14c6a8e713c7218e60824453ad7b15468a77d626",
+    "/assets/icons/newspaper.svg": "94eee59405964b10c7ad72a3e73ec07f1cd79e7c",
+    "/assets/icons/prevention/01.svg": "471f5af671fbc21f47a1da56a2e4a613b648f049",
+    "/assets/icons/prevention/02.svg": "7fe858a876f9286e1683364eca33144fd7ca6cab",
+    "/assets/icons/prevention/03.svg": "b3489d6fca14d3b77ad1899a75acbfda55dbc78b",
+    "/assets/icons/prevention/04.svg": "160fd1beabdb7e8229f5d8f2a969c1b72b6b5f81",
+    "/assets/icons/prevention/05.svg": "9e7c78c00cd01f4a0c26211f89df093b84e8907d",
+    "/assets/icons/prevention/06.svg": "28da27e607eab676f27e291a937ff1dbc883a03f",
+    "/assets/icons/small-info.svg": "4c5b4ec9e2d8997a068e874501a90f81a0a27244",
+    "/assets/img/coronaLogo.png": "2a3a03af641c8ad6b3e056d12227774e31e367b9",
+    "/assets/img/coronaLogo.svg": "ec0bef3cdc902c1de6c977dde2c92432ff272f1c",
+    "/assets/img/doctor-woman.svg": "63be4387288dcb545f327531321fd88b5dfa18dd",
+    "/assets/img/translation.svg": "e8c52bad8c832403bdcde60af59487a6c2a4849b",
+    "/favicon.ico": "afdce518a4f952e6acee9d34a42fc66b3a2e0e28",
+    "/index.html": "9c804250e2ad81233c8d5b289595968d55557d4c",
+    "/main-es2015.a3fe0fb0d2668d60442f.js": "766c8f1638e41df448779b7b7d7d27e5d1bff97a",
+    "/main-es5.a3fe0fb0d2668d60442f.js": "91a8c8ce38121b7dfb3f12f293e3a37ee176de30",
+    "/manifest.webmanifest": "71599c4f1df3ecb1a6d08254b6b7b7fd85254632",
+    "/polyfills-es2015.1f913f16a2d346cc8bdc.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "/polyfills-es5.1a3c78b07cd6f16c6e9a.js": "0a14b45481c8e41b507ffe0607f3e8b2b73628f6",
+    "/runtime-es2015.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/runtime-es5.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.83087cb66cb6ba7a5980.css": "94b1fffe1f7bd23ec6d70b2cb63222830b0f6662"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

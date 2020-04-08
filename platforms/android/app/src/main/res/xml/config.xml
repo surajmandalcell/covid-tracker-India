@@ -4,12 +4,12 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>CovidTrackerIndia</name>
+    <name>Covid-19 India</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A covid-19 pandemic tracker for India.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="cruelplatypus67@gmail.com" href="http://surajmandalcell.github.io">
+        Surajmandalcell
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -20,5 +20,11 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
+    <icon density="ldpi" src="www/assets/icons/icon-72x72.png" />
+    <icon density="mdpi" src="www/assets/icons/icon-72x72.png" />
+    <icon density="hdpi" src="www/assets/icons/icon-72x72.png" />
+    <icon density="xhdpi" src="www/assets/icons/icon-96x96.png" />
+    <icon density="xxhdpi" src="www/assets/icons/icon-144x144.png" />
+    <icon density="xxxhdpi" src="www/assets/icons/icon-192x192.png" />
     <preference name="loglevel" value="DEBUG" />
 </widget>

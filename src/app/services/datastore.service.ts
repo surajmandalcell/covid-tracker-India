@@ -1,4 +1,4 @@
-import { news, contacts } from './../models/general';
+import { news, contacts, countries } from './../models/general';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { stateTable } from '../models/general';
@@ -8,7 +8,7 @@ import { stateTable } from '../models/general';
 })
 export class DatastoreService {
   // News
-  News: news[];
+  News: any;
 
   // Contacts
   Contacts: contacts[];
@@ -33,36 +33,42 @@ export class DatastoreService {
     totalSeriousCases: 0,
   }
 
+  // Global Country Data
+  countries: countries;
+
   // State Data
   stateDataTotal: any;
   stateData: stateTable[];
   displayedColumns: string[] = ['loc', 'confirmedCasesIndian', 'confirmedCasesForeign', 'discharged', 'deaths'];
 
   // Graphs data
-  deathRateMen = [{"name": "Death Rate","value": 4.7},{"name": "Confirmed","value": 100}];
-  deathRateWomen = [{"name": "Death Rate","value": 2.8},{"name": "Confirmed","value": 100}];
-  deathRateByAge = [{"name": "80+","value": 14.8},{"name": "70-79","value": 8.0},{"name": "60-69","value": 3.6},{"name": "50-59","value": 1.3},{"name": "40-49","value": 0.4},{"name": "30-39","value": 0.2},{"name": "20-29","value": 0.2},{"name": "10-19 ","value": 8.0},{"name": "70-9","value": 0.0}];
+  deathRateByAge = [{ "name": "80+", "value": 14.8 }, { "name": "70-79", "value": 8.0 }, { "name": "60-69", "value": 3.6 }, { "name": "50-59", "value": 1.3 }, { "name": "40-49", "value": 0.4 }, { "name": "30-39", "value": 0.2 }, { "name": "20-29", "value": 0.2 }, { "name": "10-19 ", "value": 8.0 }, { "name": "70-9", "value": 0.0 }];
 
   // Api links
   api = {
     rootnet: 'https://api.rootnet.in',
+    smartable: 'https://api.smartable.ai',
+    lmaoninja: 'https://corona.lmao.ninja',
     thevirustracker: 'https://thevirustracker.com',
     chris: 'https://covid19-server.chrismichael.now.sh',
-    surajmandalcell: 'https://raw.githubusercontent.com/surajmandalcell/covid-tracker-India/gh-pages/news.json',
   }
   params = {
-    // chris
-    globalData: '/api/v1/AllReports',
-    globalDeathsOverTime: '/api/v1/Deaths',
-    fatalityRateBySex: '/api/v1/FatalityRateBySex',
-    fatalityRateByAge: '/api/v1/FatalityRateByAge',
-    fatalityRateByComorbidities: '/api/v1/FatalityRateByComorbidities',
+    // Smartable
+    news: '/coronavirus/news/IN',
+    // lmaoninja
+    countries: '/countries',
     // Thevirustracker
     globalData2: '/free-api?global=stats',
     // rootnet
     contacts: '/covid19-in/contacts',
     stateWiseData: '/covid19-in/stats/latest',
     countryData: '/covid19-in/unofficial/covid19india.org/statewise',
+    // chris
+    globalData: '/api/v1/AllReports',
+    globalDeathsOverTime: '/api/v1/Deaths',
+    fatalityRateBySex: '/api/v1/FatalityRateBySex',
+    fatalityRateByAge: '/api/v1/FatalityRateByAge',
+    fatalityRateByComorbidities: '/api/v1/FatalityRateByComorbidities',
   }
 
   constructor(public httpClient: HttpClient) { }
@@ -96,8 +102,6 @@ export class DatastoreService {
         this.getGlobalData2();
       });
   }
-
-
   // Using thevirustracker
   async getGlobalData2() {
     this.httpClient.get(this.api.thevirustracker + this.params.globalData2).subscribe((res: any) => {
@@ -109,6 +113,15 @@ export class DatastoreService {
       this.Global.newDeaths = res.result[0].total_new_deaths_today;
       this.Global.totalActiveCases = res.result[0].total_active_cases;
       this.Global.totalSeriousCases = res.result[0].total_serious_cases;
+    });
+  }
+
+  // Get global data country wise 
+  async getAllCountry() {
+    this.httpClient.get(this.api.lmaoninja + this.params.countries).subscribe((res: any) => {
+      console.log('getting country wise data..');
+      console.log(res);
+      this.countries = res;
     });
   }
 
@@ -129,11 +142,13 @@ export class DatastoreService {
   }
 
   async getNews() {
-    this.httpClient.get(this.api.surajmandalcell).subscribe((res: any) => {
-      console.log(res);
-      this.News = res.articles;
-      console.log(this.News);
-    });
+    this.httpClient.get(this.api.smartable + this.params.news, {headers: {'Subscription-Key': '8eb78bdc407945baa9f264db6c2afc2a'}}).subscribe((res: any) => {
+        console.log(res);
+        this.News = res.news.filter(x=>{
+          return !["washingtonpost.com", "bbc.com"].includes(x.provider.domain);
+        });
+        console.log(this.News);
+      });
   }
 
   async getContacts() {

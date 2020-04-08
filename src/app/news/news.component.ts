@@ -11,6 +11,11 @@ export class NewsComponent implements OnInit {
 
   constructor(public data: DatastoreService,public httpClient: HttpClient) {
     data.getNews();
+    console.log(data.News);
+  }
+
+  goto(url: string){
+    window.open(url, "_blank");
   }
 
   ngOnInit(): void {}

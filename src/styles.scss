@@ -523,24 +523,33 @@ div.card-7 {
 }
 
 .card-6 {
-  .chartsHolder {
-    display: flex;
-    flex-wrap: wrap;
-    h2{
-      width: 100%;
-      display: block;
-    }
-    .chartDiv {
-      flex: 1;
-      margin-top: 2vh;
-      max-height: 400px;
+  mat-card.card.deathsByAge {
+    background: #928a8a;
+    .chartsHolder {
+      display: flex;
+      flex-wrap: wrap;
+      h2 {
+        width: 100%;
+        display: block;
+        color: rgb(212, 212, 212);
+      }
+      .chartDiv {
+        flex: 1;
+        margin-top: 2vh;
+        max-height: 400px;
+      }
     }
   }
-  mat-card.card:nth-child(2){
-    background: #928a8a;
-    .chartsHolder{
-      h2{
-        color: rgb(212, 212, 212);
+  @include res("md") {
+    .countryCards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      mat-card.card{
+        max-width: 360px;
+        mat-card-title.mat-card-title img{
+          filter: none;
+        }
       }
     }
   }
@@ -760,6 +769,12 @@ tr:nth-last-child(1) {
     .mat-icon {
       filter: brightness(0) invert(1);
       opacity: 0.4;
+    }
+  }
+  // Stats Card
+  div.card-6{
+    .countryCards .mat-card .mat-card-title img{
+      filter: none;
     }
   }
   // Awareness card

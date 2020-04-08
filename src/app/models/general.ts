@@ -6,7 +6,7 @@ export interface stateTable {
   deaths: number;
 }
 
-export interface news{
+export interface news {
   title: string;
   imageUrl: string;
   date: any;
@@ -14,13 +14,36 @@ export interface news{
   discription: string;
 }
 
-export interface contacts{
+export interface contacts {
   loc: string;
   number: string;
 }
 
 export interface Item {
-  id?:string;
-  title?:string;
+  id?: string;
+  title?: string;
   description?: string;
+}
+
+export interface countries {
+  country: string;
+  countryInfo: {
+    _id: number;
+    iso2: string;
+    iso3: string;
+    country: string;
+    lat: number;
+    long: number;
+    flag: string;
+  }
+  cases: number
+  todayCases: number;
+  deaths: number;
+  todayDeaths: number;
+  recovered: number;
+  active: number;
+  critical: number;
+  casesPerOneMillion: number;
+  deathsPerOneMillion: number;
+  updated: number;
 }

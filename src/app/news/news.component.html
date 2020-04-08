@@ -1,13 +1,10 @@
 <mat-card class="card card-8 mat-elevation-z0">
-  <div class="disclamer disclamer-1">
-    <p>News page is still work in progress</p>
-  </div>
-  <mat-card class="newsCard mat-elevation-z0" *ngFor="let article of data.News">
+  <mat-card class="newsCard mat-elevation-z0" *ngFor="let article of data.News" (click)="goto(article.webUrl)">
     <mat-card-header>
       <mat-card-title>{{article.title}}</mat-card-title>
-      <mat-card-subtitle>{{article.date}}</mat-card-subtitle>
+      <mat-card-subtitle>{{article.provider.name}}</mat-card-subtitle>
     </mat-card-header>
-    <img class="mat-list-avatar" matListAvatar src={{article.imageUrl}} mat-elevation-z1>
+    <img class="mat-list-avatar" matListAvatar src={{article.images[0].url}} alt={{article.images[0].title}} mat-elevation-z1>
     <mat-card-content>
       <h3>{{article.discription}}</h3>
     </mat-card-content>

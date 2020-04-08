@@ -8,15 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatsComponent implements OnInit {
   // options
-  pieChartCommon = {
-    gradient: false,
-    showLegend: true,
-    isDoughnut: false,
-    showLabels: false,
-    animations: false,
-    tooltipDisabled: true,
-    legendPosition: 'below',
-  }
   barChart = {
     showYAxis: true,
     gradient: false,
@@ -27,11 +18,6 @@ export class StatsComponent implements OnInit {
     showXAxisLabel: false,
     yAxisLabel: 'Death %',
     legendPosition: 'below'
-  }
-
-  title = {
-    pie1: 'Death Rate Men',
-    pie2: 'Death Rate Women'
   }
 
   colorScheme = {
@@ -51,7 +37,9 @@ export class StatsComponent implements OnInit {
     ]
   };
 
-  constructor(public data: DatastoreService) { }
+  constructor(public data: DatastoreService) {
+    data.getAllCountry();
+  }
 
   onSelect(data: any): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));

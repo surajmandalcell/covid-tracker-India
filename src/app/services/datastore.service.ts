@@ -42,7 +42,7 @@ export class DatastoreService {
   displayedColumns: string[] = ['loc', 'confirmedCasesIndian', 'confirmedCasesForeign', 'discharged', 'deaths'];
 
   // Graphs data
-  deathRateByAge = [{ "name": "80+", "value": 14.8 }, { "name": "70-79", "value": 8.0 }, { "name": "60-69", "value": 3.6 }, { "name": "50-59", "value": 1.3 }, { "name": "40-49", "value": 0.4 }, { "name": "30-39", "value": 0.2 }, { "name": "20-29", "value": 0.2 }, { "name": "10-19 ", "value": 8.0 }, { "name": "70-9", "value": 0.0 }];
+  deathRateByAge = [{ "name": "80+", "value": 14.8 }, { "name": "70-79", "value": 8.0 }, { "name": "60-69", "value": 3.6 }, { "name": "50-59", "value": 1.3 }, { "name": "40-49", "value": 0.4 }, { "name": "30-39", "value": 0.2 }, { "name": "20-29", "value": 0.2 }, { "name": "10-19 ", "value": 8.0 }, { "name": "0-9", "value": 0.0 }];
 
   // Api links
   api = {

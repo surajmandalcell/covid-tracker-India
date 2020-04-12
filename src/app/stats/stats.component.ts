@@ -1,5 +1,7 @@
+import { countries } from './../models/general';
 import { DatastoreService } from './../services/datastore.service';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-stats',
@@ -12,9 +14,9 @@ export class StatsComponent implements OnInit {
     showYAxis: true,
     gradient: false,
     showXAxis: true,
-    showLegend: true,
+    showLegend: false,
     xAxisLabel: 'Age',
-    showYAxisLabel: true,
+    showYAxisLabel: false,
     showXAxisLabel: false,
     yAxisLabel: 'Death %',
     legendPosition: 'below'
@@ -36,6 +38,14 @@ export class StatsComponent implements OnInit {
       '#92E7E8'
     ]
   };
+
+  searchForm = new FormGroup({
+    search: new FormControl('',[])
+  })
+
+  search(){
+    this.data.countries = this.data.countries2.filter(y=>y.country.toLowerCase().includes(this.searchForm.value.search));
+  }
 
   constructor(public data: DatastoreService) {
     data.getAllCountry();

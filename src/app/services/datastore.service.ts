@@ -34,7 +34,8 @@ export class DatastoreService {
   }
 
   // Global Country Data
-  countries: countries;
+  countries: countries[];
+  countries2: countries[];
 
   // State Data
   stateDataTotal: any;
@@ -122,6 +123,7 @@ export class DatastoreService {
       console.log('getting country wise data..');
       console.log(res);
       this.countries = res;
+      this.countries2 = res;
     });
   }
 

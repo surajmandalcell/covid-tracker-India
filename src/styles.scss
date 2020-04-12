@@ -523,6 +523,7 @@ div.card-7 {
 }
 
 .card-6 {
+  overflow: hidden;
   mat-card.card.deathsByAge {
     background: #928a8a;
     .chartsHolder {
@@ -540,13 +541,44 @@ div.card-7 {
       }
     }
   }
+  .search{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    border-radius: 6px;
+    background: $surface-dk;
+    *{
+      color: $on-surface-dk;
+    }
+    .search-form{
+      .full-width{
+        width: 100%;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 10px;
+      }
+    }
+  }
+  @include res("sm"){
+    .search{
+      .search-form{
+        .full-width{
+          width: 100%;
+          padding-left: 4%;
+          padding-right: 4%;
+        }
+      }
+    }
+  }
   @include res("md") {
     .countryCards {
       display: flex;
+      margin: 0 -5px;
       flex-wrap: wrap;
       justify-content: space-between;
       mat-card.card{
-        max-width: 360px;
+        // max-width: 360px;
+        flex: 1;
+        margin: 1vw 1vw;
         mat-card-title.mat-card-title img{
           filter: none;
         }

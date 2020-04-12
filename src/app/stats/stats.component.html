@@ -13,6 +13,14 @@
     </mat-card-content>
   </mat-card>
 
+  <div class="card search">
+    <form class="search-form" [formGroup]="searchForm">
+      <mat-form-field class="full-width" (input)="search()">
+        <input formControlName="search" placeholder="Search" matInput>
+      </mat-form-field>
+    </form>
+  </div>
+
   <div class="countryCards" >
     <mat-card *ngFor="let country of data.countries" class="card card-1 mat-elevation-z0">
       <mat-card-header>

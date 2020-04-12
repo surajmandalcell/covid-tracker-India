@@ -13,6 +13,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 import { AboutComponent } from './about/about.component';
@@ -53,6 +54,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatGridListModule,
     MatExpansionModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

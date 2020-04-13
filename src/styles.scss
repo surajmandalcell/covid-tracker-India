@@ -543,7 +543,7 @@ div.card-7 {
   }
   .search{
     margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     border-radius: 6px;
     background: $surface-dk;
     *{
@@ -560,6 +560,7 @@ div.card-7 {
   }
   @include res("sm"){
     .search{
+      margin-bottom: 2vh;
       .search-form{
         .full-width{
           width: 100%;

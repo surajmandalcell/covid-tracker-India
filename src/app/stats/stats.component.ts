@@ -44,7 +44,7 @@ export class StatsComponent implements OnInit {
   })
 
   search(){
-    this.data.countries = this.data.countries2.filter(y=>y.country.toLowerCase().includes(this.searchForm.value.search));
+    this.data.countries = this.data.countries2.filter(y=>y.country.toLowerCase().includes(this.searchForm.value.search.toLowerCase()));
   }
 
   constructor(public data: DatastoreService) {

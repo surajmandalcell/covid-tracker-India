@@ -57,7 +57,7 @@ export class DatastoreService {
     // Smartable
     news: '/coronavirus/news/IN',
     // lmaoninja
-    countries: '/countries',
+    countries: '/v2/countries',
     // Thevirustracker
     globalData2: '/free-api?global=stats',
     // rootnet
@@ -97,24 +97,7 @@ export class DatastoreService {
       this.Global.newDeaths = this.sanitize(reports.NewDeaths);
       this.Global.totalActiveCases = this.sanitize(reports.ActiveCases);
       this.Global.totalSeriousCases = this.sanitize(reports.Serious_Critical);
-    },
-      (error) => {
-        console.log(error);
-        this.getGlobalData2();
-      });
-  }
-  // Using thevirustracker
-  async getGlobalData2() {
-    this.httpClient.get(this.api.thevirustracker + this.params.globalData2).subscribe((res: any) => {
-      console.log('inside api 2')
-      this.Global.totalCases = res.result[0].total_cases;
-      this.Global.totalDead = res.result[0].total_deaths;
-      this.Global.totalRecovered = res.result[0].total_recovered;
-      this.Global.newCases = res.result[0].total_new_cases_today;
-      this.Global.newDeaths = res.result[0].total_new_deaths_today;
-      this.Global.totalActiveCases = res.result[0].total_active_cases;
-      this.Global.totalSeriousCases = res.result[0].total_serious_cases;
-    });
+    })
   }
 
   // Get global data country wise 

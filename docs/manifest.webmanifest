@@ -1,8 +1,9 @@
 {
-  "name": "covid-tracker-India",
-  "short_name": "covid-tracker-India",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "India Covid 19 Tracker",
+  "short_name": "Covid 19 Tracker",
+  "theme_color": "#eeeef3",
+  "background_color": "#f1f1f1",
+  "content": "#eeeef3",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

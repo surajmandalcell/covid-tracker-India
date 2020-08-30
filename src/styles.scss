@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./scss/breakpoints";
 
 // Variables
 
@@ -21,29 +22,6 @@ $c-blue: rgb(124, 124, 206);
 
 $border-radius-main: 6px;
 $card-content-margin: 26px;
-
-// Mixins
-$breakpoints: (
-  "xs": (
-    max-width: 575px,
-  ),
-  "sm": (
-    min-width: 576px,
-  )
-  and
-  (
-    max-width: 575px,
-  ),
-  "md": (
-    min-width: 768px,
-  ),
-  "lg": (
-    min-width: 992px,
-  ),
-  "xlg": (
-    min-width: 1200px,
-  ),
-) !default;
 
 @mixin res($breakpoint) {
   // If the key exists in the map
@@ -283,14 +261,12 @@ mat-card.card-2 {
     white-space: nowrap;
   }
   @include res("xs") {
+    padding-left: 2px;
     mat-card-content {
       overflow-x: scroll;
     }
   }
   @include res("sm") {
-    padding-left: 2px;
-  }
-  @include res("xs") {
     padding-left: 2px;
   }
 }

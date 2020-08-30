@@ -36,7 +36,7 @@ export class DatastoreService {
 
   // State Data
   stateDataTotal: any;
-  stateData: stateTable[];
+  stateData: StateTable[];
   displayedColumns: string[] = [
     'loc',
     'confirmedCasesIndian',

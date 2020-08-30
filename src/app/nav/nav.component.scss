@@ -1,0 +1,17 @@
+@media (min-width: 576px) {
+  .navbar {
+    left: 50%;
+    width: 80vw;
+    bottom: -8px;
+    position: fixed;
+    max-width: 620px;
+    transform: translateX(-50%);
+    box-shadow: 1px 1px 6px #6b6bff10;
+    box-shadow: -1px -1px 6px #6b6bff10;
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s;
+    &:hover {
+      box-shadow: 2px 2px 8px #6b6bff15;
+      box-shadow: 2px 1px 8px 4px #7676ff15;
+    }
+  }
+}

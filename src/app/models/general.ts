@@ -1,7 +1,6 @@
-export interface stateTable {
+export interface StateTable {
   loc: string;
   confirmedCasesIndian: number;
-  confirmedCasesForeign: number;
   discharged: number;
   deaths: number;
 }
@@ -35,8 +34,8 @@ export interface countries {
     lat: number;
     long: number;
     flag: string;
-  }
-  cases: number
+  };
+  cases: number;
   todayCases: number;
   deaths: number;
   todayDeaths: number;

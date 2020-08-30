@@ -185,8 +185,10 @@ mat-card.card-1 {
   }
   mat-card-content {
     display: flex;
+    justify-content: space-evenly;
     font-size: 0.86rem;
     div:nth-child(1) {
+      flex: 1 1 20%;
       margin-left: 16px;
       p:nth-child(1) {
         color: $c-grey;
@@ -196,6 +198,7 @@ mat-card.card-1 {
       }
     }
     div:nth-child(2) {
+      flex: 1 1 20%;
       p:nth-child(1) {
         color: $c-blue;
       }
@@ -204,6 +207,7 @@ mat-card.card-1 {
       }
     }
     div:nth-child(3) {
+      flex: 1 1 20%;
       p:nth-child(1) {
         color: $c-green;
       }
@@ -212,6 +216,7 @@ mat-card.card-1 {
       }
     }
     div:nth-child(4) {
+      flex: 1 1 20%;
       p:nth-child(1) {
         color: $c-red;
       }
@@ -240,41 +245,26 @@ mat-card.card-2 {
       }
     }
     div:nth-child(1) {
-      margin-left: 16px !important;
+      flex: 1 1 30%;
+      margin-left: 16px;
       p:nth-child(1) {
-        color: $c-grey;
+        color: $c-blue;
       }
       p:nth-child(2) {
-        color: $c-grey;
+        color: $c-blue;
       }
     }
     div:nth-child(2) {
-      // margin-left: 16px;
+      flex: 1 1 30%;
       p:nth-child(1) {
-        color: $c-blue;
+        color: $c-green;
       }
       p:nth-child(2) {
-        color: $c-blue;
+        color: $c-green;
       }
     }
     div:nth-child(3) {
-      // margin-left: 16px;
-      p:nth-child(1) {
-        color: $c-orange;
-      }
-      p:nth-child(2) {
-        color: $c-orange;
-      }
-    }
-    div:nth-child(4) {
-      p:nth-child(1) {
-        color: $c-green;
-      }
-      p:nth-child(2) {
-        color: $c-green;
-      }
-    }
-    div:nth-child(5) {
+      flex: 1 1 30%;
       p:nth-child(1) {
         color: $c-red;
       }
@@ -291,9 +281,6 @@ mat-card.card-2 {
   width: 100%;
   mat-card-content {
     white-space: nowrap;
-    div:not(:first-child) {
-      margin-left: $card-content-margin;
-    }
   }
   @include res("xs") {
     mat-card-content {
@@ -541,16 +528,16 @@ div.card-7 {
       }
     }
   }
-  .search{
+  .search {
     margin-top: 2vh;
     margin-bottom: 1vh;
     border-radius: 6px;
     background: $surface-dk;
-    *{
+    * {
       color: $on-surface-dk;
     }
-    .search-form{
-      .full-width{
+    .search-form {
+      .full-width {
         width: 100%;
         padding-left: 2%;
         padding-right: 2%;
@@ -558,11 +545,11 @@ div.card-7 {
       }
     }
   }
-  @include res("sm"){
-    .search{
+  @include res("sm") {
+    .search {
       margin-bottom: 2vh;
-      .search-form{
-        .full-width{
+      .search-form {
+        .full-width {
           width: 100%;
           padding-left: 4%;
           padding-right: 4%;
@@ -576,11 +563,11 @@ div.card-7 {
       margin: 0 -5px;
       flex-wrap: wrap;
       justify-content: space-between;
-      mat-card.card{
+      mat-card.card {
         // max-width: 360px;
         flex: 1;
         margin: 1vw 0.5vw;
-        mat-card-title.mat-card-title img{
+        mat-card-title.mat-card-title img {
           filter: none;
         }
       }
@@ -805,8 +792,8 @@ tr:nth-last-child(1) {
     }
   }
   // Stats Card
-  div.card-6{
-    .countryCards .mat-card .mat-card-title img{
+  div.card-6 {
+    .countryCards .mat-card .mat-card-title img {
       filter: none;
     }
   }

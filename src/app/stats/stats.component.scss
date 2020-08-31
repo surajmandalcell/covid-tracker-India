@@ -1,0 +1,73 @@
+@import "./../../scss/breakpoints";
+@import "./../../scss/constants";
+
+.card-6 {
+  overflow: hidden;
+  mat-card.card.deathsByAge {
+    background: #928a8a;
+    .chartsHolder {
+      display: flex;
+      flex-wrap: wrap;
+      h2 {
+        width: 100%;
+        display: block;
+        color: rgb(212, 212, 212);
+      }
+      .chartDiv {
+        flex: 1;
+        margin-top: 2vh;
+        max-height: 400px;
+      }
+    }
+  }
+  .search {
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    border-radius: 6px;
+    background: #fcfcfc;
+    &.isDark {
+      background: $surface-dk;
+      * {
+        color: $on-surface-dk;
+      }
+    }
+    .search-form {
+      .full-width {
+        width: 100%;
+        opacity: 0.75;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 10px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+  @include res("sm") {
+    .search {
+      margin-bottom: 2vh;
+      .search-form {
+        .full-width {
+          width: 100%;
+          padding-left: 4%;
+          padding-right: 4%;
+        }
+      }
+    }
+  }
+  @include res("md") {
+    .countryCards {
+      display: flex;
+      margin: 0 -5px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      mat-card.card {
+        // max-width: 360px;
+        flex: 1;
+        margin: 1vw 0.5vw;
+        mat-card-title.mat-card-title img {
+          filter: none;
+        }
+      }
+    }
+  }
+}

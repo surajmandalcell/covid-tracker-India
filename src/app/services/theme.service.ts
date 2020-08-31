@@ -2,9 +2,15 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/internal/Subject';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
+  constructor() {
+    if (this.dark) {
+      this.goDark();
+    }
+  }
+
   dark: boolean = this.isDark();
   darkObs: Subject<boolean> = new Subject<boolean>();
 
@@ -25,12 +31,6 @@ export class ThemeService {
   goLight() {
     this.darkObs.next(false);
     localStorage.setItem('theme', '');
-  }
-
-  constructor() {
-    if (this.dark) {
-      this.goDark();
-    }
   }
 
   isDark(): boolean {

@@ -3,44 +3,59 @@
     <mat-card-content class="chartsHolder">
       <h2>Mortality Rate by Age</h2>
       <div class="chartDiv">
-        <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="data.deathRateByAge" [gradient]="barChart.gradient"
-          [legendPosition]="barChart.legendPosition" [xAxis]="barChart.showXAxis" [yAxis]="barChart.showYAxis"
-          [legend]="barChart.showLegend" [showXAxisLabel]="barChart.showXAxisLabel"
-          [showYAxisLabel]="barChart.showYAxisLabel" [xAxisLabel]="barChart.xAxisLabel"
-          [yAxisLabel]="barChart.yAxisLabel" (select)="onSelect($event)">
+        <ngx-charts-bar-vertical
+          [scheme]="colorScheme"
+          [results]="data.deathRateByAge"
+          [gradient]="barChart.gradient"
+          [legendPosition]="barChart.legendPosition"
+          [xAxis]="barChart.showXAxis"
+          [yAxis]="barChart.showYAxis"
+          [legend]="barChart.showLegend"
+          [showXAxisLabel]="barChart.showXAxisLabel"
+          [showYAxisLabel]="barChart.showYAxisLabel"
+          [xAxisLabel]="barChart.xAxisLabel"
+          [yAxisLabel]="barChart.yAxisLabel"
+          (select)="onSelect($event)"
+        >
         </ngx-charts-bar-vertical>
       </div>
     </mat-card-content>
   </mat-card>
 
-  <div class="card search">
-    <form class="search-form" [formGroup]="searchForm">
+  <div class="card search" [ngClass]="{ isDark: this.dark }">
+    <form autocomplete="off" class="search-form" [formGroup]="searchForm">
       <mat-form-field class="full-width" (input)="search()">
-        <input formControlName="search" placeholder="Search" matInput>
+        <input formControlName="search" placeholder="Search" matInput />
       </mat-form-field>
     </form>
   </div>
 
-  <div class="countryCards" >
-    <mat-card *ngFor="let country of data.countries" class="card card-1 mat-elevation-z0">
+  <div class="countryCards">
+    <mat-card
+      *ngFor="let country of data.countries"
+      class="card card-1 mat-elevation-z0"
+    >
       <mat-card-header>
-        <mat-card-title><img src={{country.countryInfo.flag}}> &nbsp; {{country.country}}</mat-card-title>
+        <mat-card-title
+          ><img src="{{ country.countryInfo.flag }}" /> &nbsp;
+          {{ country.country }}</mat-card-title
+        >
       </mat-card-header>
       <mat-card-content>
         <div>
-          <p>{{country.cases}}</p>
+          <p>{{ country.cases }}</p>
           <p>Confirmed</p>
         </div>
         <div>
-          <p>{{country.active}}</p>
+          <p>{{ country.active }}</p>
           <p>Active</p>
         </div>
         <div>
-          <p>{{country.recovered}}</p>
+          <p>{{ country.recovered }}</p>
           <p>Recovered</p>
         </div>
         <div>
-          <p>{{country.deaths}}</p>
+          <p>{{ country.deaths }}</p>
           <p>Deaths</p>
         </div>
       </mat-card-content>

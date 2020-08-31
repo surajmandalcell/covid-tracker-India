@@ -5,24 +5,21 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnDestroy{
+export class AppComponent implements OnDestroy {
   dark: boolean = !!localStorage.getItem('theme');
   subscription: Subscription;
 
-  constructor(
-    private renderer: Renderer2,
-    theme: ThemeService
-  ) {
+  constructor(private renderer: Renderer2, theme: ThemeService) {
     this.setTheme();
-    this.subscription = theme.darkObs.subscribe((val)=>{
+    this.subscription = theme.darkObs.subscribe((val) => {
       this.dark = val;
       this.setTheme();
-    })
+    });
   }
 
-  setTheme(){
+  setTheme() {
     if (this.dark) {
       this.renderer.addClass(document.body, 'dark-mode');
     } else {
@@ -30,7 +27,7 @@ export class AppComponent implements OnDestroy{
     }
   }
 
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }

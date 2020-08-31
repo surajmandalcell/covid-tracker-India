@@ -1,14 +1,25 @@
-import { countries } from './../models/general';
 import { DatastoreService } from './../services/datastore.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ThemeService } from '../services/theme.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
-  styleUrls: ['./stats.component.scss']
+  styleUrls: ['./stats.component.scss'],
 })
 export class StatsComponent implements OnInit {
+  constructor(public data: DatastoreService, public theme: ThemeService) {
+    data.getAllCountry();
+    this.dark = theme.dark;
+    theme.darkObs.subscribe((val) => {
+      this.dark = val;
+    });
+  }
+
+  dark: boolean;
+
   // options
   barChart = {
     showYAxis: true,
@@ -19,8 +30,8 @@ export class StatsComponent implements OnInit {
     showYAxisLabel: false,
     showXAxisLabel: false,
     yAxisLabel: 'Death %',
-    legendPosition: 'below'
-  }
+    legendPosition: 'below',
+  };
 
   colorScheme = {
     domain: [
@@ -35,20 +46,20 @@ export class StatsComponent implements OnInit {
       '#B7332F',
       '#2C83C9',
       '#9166B8',
-      '#92E7E8'
-    ]
+      '#92E7E8',
+    ],
   };
 
   searchForm = new FormGroup({
-    search: new FormControl('',[])
-  })
+    search: new FormControl('', []),
+  });
 
-  search(){
-    this.data.countries = this.data.countries2.filter(y=>y.country.toLowerCase().includes(this.searchForm.value.search.toLowerCase()));
-  }
-
-  constructor(public data: DatastoreService) {
-    data.getAllCountry();
+  search() {
+    this.data.countries = this.data.countries2.filter((y) =>
+      y.country
+        .toLowerCase()
+        .includes(this.searchForm.value.search.toLowerCase())
+    );
   }
 
   onSelect(data: any): void {
@@ -63,7 +74,5 @@ export class StatsComponent implements OnInit {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -4,13 +4,12 @@ import { ThemeService } from '../services/theme.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   title = 'Covid 19';
 
   constructor(public theme: ThemeService) {}
 
   ngOnInit(): void {}
-  
 }

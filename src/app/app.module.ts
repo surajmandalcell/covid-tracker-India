@@ -13,7 +13,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { environment } from 'src/environments/environment';
 
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -53,6 +55,9 @@ import { StatsComponent } from './stats/stats.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

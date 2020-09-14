@@ -5,9 +5,15 @@
   "background_color": "#f1f1f1",
   "content": "#eeeef3",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "./",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
+    {
+      "src": "assets/icons/maskable_icon.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
     {
       "src": "assets/icons/icon-72x72.png",
       "sizes": "72x72",
